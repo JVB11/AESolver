@@ -3,7 +3,7 @@
 [![GitHub watchers](https://img.shields.io/github/watchers/JVB11/AESolver)](https://github.com/JVB11/AESolver/watchers)
 [![GitHub forks](https://img.shields.io/github/forks/JVB11/AESolver)](https://github.com/JVB11/AESolver/forks)
 [![GitHub Repo stars](https://img.shields.io/github/stars/JVB11/AESolver)](https://github.com/JVB11/AESolver/stargazers)
-![GitHub License](https://img.shields.io/github/license/jvb11/aesolver)
+[![GitHub License](https://img.shields.io/github/license/jvb11/aesolver)](./LICENSE)
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/JVB11/AESolver)
 <!-- ![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FJVB11%2FAESolver%2Fmain%2Faesolver%2Fpyproject.toml)
 ![Lines of code](https://img.shields.io/tokei/lines/github/JVB11/AESolver) -->
