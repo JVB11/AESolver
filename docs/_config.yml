@@ -1,0 +1,10 @@
+title: AESolver
+description: Amplitude Equations Solver
+
+remote_theme: pages-themes/hacker@v0.2.0
+plugins:
+- jekyll-remote-theme
+
+url: https://JVB11.github.io/AESolver/
+aux_links:
+  Template Repository: https://github.com/JVB11/AESolver
