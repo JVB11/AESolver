@@ -1,3 +1,8 @@
+---
+layout: default
+title: resolve_paths API documentation
+---
+
 Module path_resolver.resolve_paths
 ==================================
 Utility module containing functions used to resolve paths to files.

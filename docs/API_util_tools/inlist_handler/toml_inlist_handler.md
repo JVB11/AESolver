@@ -1,3 +1,8 @@
+---
+layout: default
+title: toml_inlist_handler API documentation
+---
+
 Module inlist_handler.toml_inlist_handler
 =========================================
 Python module that defines the class needed to parse toml-style inlists and retrieves the necessary information.

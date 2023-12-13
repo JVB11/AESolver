@@ -1,3 +1,8 @@
+---
+layout: default
+title: generic_parser API documentation
+---
+
 Module generic_parser.generic_parser
 ====================================
 Python module containing (super)class that handles generic parsing of arguments, and inlist reading.

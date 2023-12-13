@@ -1,3 +1,8 @@
+---
+layout: default
+title: log_formatter API documentation
+---
+
 Module log_formatter.log_formatter
 ==================================
 Python module containing functions used to set up the root logger to format log messages in a nice way.

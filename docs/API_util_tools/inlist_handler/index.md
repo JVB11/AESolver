@@ -1,3 +1,8 @@
+---
+layout: default
+title: index of inlist_handler API documentation
+---
+
 Module inlist_handler
 =====================
 Initialization file for the python module that contains a class used for loading data from inlists into Python.

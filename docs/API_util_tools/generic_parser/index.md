@@ -1,3 +1,8 @@
+---
+layout: default
+title: index of generic_parser API documentation
+---
+
 Module generic_parser
 =====================
 Python package initialization file for package containing a generic class that can be subclassed to provide a parser used to parse arguments from the command line and/or an inlist.

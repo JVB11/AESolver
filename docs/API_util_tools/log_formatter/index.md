@@ -1,3 +1,8 @@
+---
+layout: default
+title: index of log_formatter API documentation
+---
+
 Module log_formatter
 ====================
 Initialization file for the python module that contains functions used to set up the root logger, so that it logs messages in a nice format.

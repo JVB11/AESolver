@@ -1,3 +1,8 @@
+---
+layout: default
+title: index for path_resolver
+---
+
 Module path_resolver
 ====================
 Initialization file for the module containing functions used to resolve paths.

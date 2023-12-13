@@ -1,3 +1,8 @@
+---
+layout: default
+title: inlist_handler API documentation
+---
+
 Module inlist_handler.inlist_handler
 ====================================
 Python module that defines the class needed to parse custom-style inlists and retrieve the necessary information for use in Python programs.
