@@ -1,13 +1,11 @@
 ---
 layout: default
-title: toml_inlist_handler API documentation
+title: TomlInlistHandler class API reference
+permalink: /API_util_tools/inlist_handler/toml_inlist_handler.html
 ---
 
-Module inlist_handler.toml_inlist_handler
 =========================================
-Python module that defines the class needed to parse toml-style inlists and retrieves the necessary information.
-
-Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
+Python module that defines the class needed to parse toml-format inlists and retrieves the necessary information.
 
 Classes
 -------
@@ -18,8 +16,7 @@ Classes
     ### Static methods
 
     `get_inlist_values(inlist_path)`
-    :   Utility method that retrieves the inlist values, as parsed
-        from the toml inlist file.
+    :   Utility method that retrieves the inlist values, as parsed from the toml inlist file.
         
         Parameters
         ----------
@@ -29,5 +26,4 @@ Classes
         Returns
         -------
         toml_input_data : dict
-            Contains the key-value pairs of the input parameters
-            specified in the inlist.
+            Contains the key-value pairs of the input parameters specified in the inlist.

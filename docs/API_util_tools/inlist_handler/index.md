@@ -1,17 +1,23 @@
 ---
 layout: default
-title: index of inlist_handler API documentation
-permalink: /apidoc-util-tools/inlist_handler/
+title: index of inlist_handler module
+permalink: /API_util_tools/inlist_handler/index.html
 ---
 
 Module inlist_handler
-=====================
-Initialization file for the python module that contains a class used for loading data from inlists into Python.
 
-Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
+=====================
+
+Initialization file for the python module that contains classes used to load data from inlists into Python.
+
+Detailed information on the available private and publicly available functions is available in the API reference of both classes:
+
+1.[API reference of inlist_handler](API_util_tools/inlist_handler/inlist_handler.html)
+2.[API reference of toml_inlist_handler](API_util_tools/inlist_handler/toml_inlist_handler.html)
 
 Sub-modules
 -----------
+
 * inlist_handler.inlist_handler
 * inlist_handler.toml_inlist_handler
 
@@ -19,69 +25,17 @@ Classes
 -------
 
 `InlistHandler()`
-:   Python class that handles how inlists are parsed.
-
-    ### Class variables
-
-    `bool_check`
-    :
-
-    `bool_false_check`
-    :
-
-    `compiled_float_regex`
-    :
-
-    `compiled_regex_defaults`
-    :
-
-    `float_check`
-    :
-
-    `list_check`
-    :
-
-    `none_check`
-    :
-
-    `string_check`
-    :
-
-    `tuple_check`
-    :
+:   Python class that handles how custom-format inlists are parsed.
 
     ### Static methods
 
     `get_inlist_values(inlist_path)`
-    :   Utility method that retrieves the default inlist values, and updates them,
-        if necessary.
-        
-        Parameters
-        ----------
-        inlist_path: str
-            Name of the inlist used to define the input for the run.
-        
-        Returns
-        -------
-        dictionary_inlist: dict
-            Contains the key-value pairs of the input parameters specified in the inlist.
+    :   Utility method that retrieves the default inlist values, and updates them, if necessary.
 
 `TomlInlistHandler()`
-:   Python class that handles how toml-format inlists are handled.
+:   Python class that handles how toml-format inlists are parsed.
 
     ### Static methods
 
     `get_inlist_values(inlist_path)`
-    :   Utility method that retrieves the inlist values, as parsed
-        from the toml inlist file.
-        
-        Parameters
-        ----------
-        inlist_path : str
-            Path to the toml inlist file.
-        
-        Returns
-        -------
-        toml_input_data : dict
-            Contains the key-value pairs of the input parameters
-            specified in the inlist.
+    :   Utility method that retrieves the inlist values, as parsed from the toml inlist file.

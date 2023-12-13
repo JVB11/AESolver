@@ -1,21 +1,18 @@
 ---
 layout: default
-title: generic_parser API documentation
+title: GenericParser class API reference
+permalink: /API_util_tools/generic_parser/generic_parser.html
 ---
 
-Module generic_parser.generic_parser
 ====================================
 Python module containing (super)class that handles generic parsing of arguments, and inlist reading.
-
-Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 
 Classes
 -------
 
 `GenericParser(base_directory_name: str, full_inlist_path: pathlib.Path | None = None, base_dir: str | None = None, inlist_name: str | None = None, inlist_dir: str | None = None, inlist_suffix: str = 'in')`
-:   (Super)Class containing generic methods and arguments used for parsing of input.
-    Input can either be read from the command-line argument parser, or from inlist files.
-    
+:   (Super)Class containing generic methods and arguments used for parsing of input. Input can either be read from the command-line argument parser, or from inlist files.
+
     Notes
     -----
     This class can be initialized in two different ways:
@@ -36,8 +33,7 @@ Classes
     inlist_name : str | None, optional
         Initialization mode 2: The name of the inlist file, by default None (i.e. opting to perform actions in this class using initialization option 1).
     inlist_dir : str or None, optional
-        Initialization mode 2: The name of the inlists directory in the base directory.
-        If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
+        Initialization mode 2: The name of the inlists directory in the base directory. If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
     inlist_suffix : str, optional
         Initialization mode 2: The suffix of the inlist file (only used for initialization mode 2), by default 'in'.
 
@@ -54,8 +50,7 @@ Classes
     ### Methods
 
     `get_ha(self, ha_dict, index_val)`
-    :   Hierarchical indexing utility method used to access
-        (possibly nested) dictionary elements.
+    :   Hierarchical indexing utility method used to access (possibly nested) dictionary elements.
         
         Parameters
         ----------
@@ -73,8 +68,7 @@ Classes
     :   Generic method used to read relevant arguments from the parsed information.
 
     `read_custom_args(self)`
-    :   Method used to read relevant arguments from the information parsed from
-        a custom inlist.
+    :   Method used to read relevant arguments from the information parsed from a custom inlist.
         
         Notes
         -----
@@ -86,18 +80,12 @@ Classes
         
         Notes
         -----
-        If a(n optional) third value is supplied in the tuple list,
-        it should be provided for all input arguments.
-        Use False for the negating bool variable (optional third entry)
-        for non-boolean input!
+        If a(n optional) third value is supplied in the tuple list, it should be provided for all input arguments. Use False for the negating bool variable (optional third entry) for non-boolean input!
         
         Parameters
         ----------
         tuple_list : list[tuple]
-            List containing tuples that represent elements of the dictionary:
-            First element is the dictionary key. The second element is
-            the dictionary value. The optional third element is a boolean
-            that inverses a boolean dictionary value if True.
+            List containing tuples that represent elements of the dictionary: First element is the dictionary key. The second element is the dictionary value. The optional third element is a boolean that inverses a boolean dictionary value if True.
         
         Returns
         -------
@@ -109,17 +97,12 @@ Classes
         
         Notes
         -----
-        If a(n optional) second value is supplied in the argument (tuple) list,
-        it should be provided for all input arguments.
-        Use False for the negating bool variable (optional second entry)
-        for non-boolean input!
+        If a(n optional) second value is supplied in the argument (tuple) list, it should be provided for all input arguments. Use False for the negating bool variable (optional second entry) for non-boolean input!
         
         Parameters
         ----------
         argument_list : list[str] or list[tuple]
-            List containing arguments that represent the names of the arguments
-            read in the inlist or argumentparser. Optional second (tuple) value
-            is a boolean that inverses a boolean value if True.
+            List containing arguments that represent the names of the arguments read in the inlist or argumentparser. Optional second (tuple) value is a boolean that inverses a boolean value if True.
         
         Returns
         -------

@@ -1,13 +1,11 @@
 ---
 layout: default
-title: inlist_handler API documentation
+title: InlistHandler class API reference
+permalink: /API_util_tools/inlist_handler/inlist_handler.html
 ---
 
-Module inlist_handler.inlist_handler
 ====================================
-Python module that defines the class needed to parse custom-style inlists and retrieve the necessary information for use in Python programs.
-
-Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
+Python module that defines the class needed to parse custom-format inlists and retrieve the necessary information for use in Python programs.
 
 Classes
 -------
@@ -47,8 +45,7 @@ Classes
     ### Static methods
 
     `get_inlist_values(inlist_path)`
-    :   Utility method that retrieves the default inlist values, and updates them,
-        if necessary.
+    :   Utility method that retrieves the default inlist values, and updates them, if necessary.
         
         Parameters
         ----------
