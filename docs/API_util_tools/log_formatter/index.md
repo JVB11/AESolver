@@ -1,6 +1,7 @@
 ---
 layout: default
 title: index of log_formatter API documentation
+permalink: /apidoc-util-tools/index_log_formatter/
 ---
 
 Module log_formatter

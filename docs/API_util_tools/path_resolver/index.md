@@ -1,6 +1,7 @@
 ---
 layout: default
 title: index for path_resolver
+permalink: /apidoc-util-tools/index_path_resolver/
 ---
 
 Module path_resolver

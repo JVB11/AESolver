@@ -1,6 +1,7 @@
 ---
 layout: default
 title: index of generic_parser API documentation
+permalink: /apidoc-util-tools/generic_parser/
 ---
 
 Module generic_parser

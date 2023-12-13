@@ -1,6 +1,7 @@
 ---
 layout: default
 title: index of inlist_handler API documentation
+permalink: /apidoc-util-tools/inlist_handler/
 ---
 
 Module inlist_handler
