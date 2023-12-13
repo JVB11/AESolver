@@ -1,4 +1,8 @@
-# API documentation of util-tools
+---
+layout: default
+title: API documentation of util-tools
+permalink: /
+---
 
 This page contains links towards the API documentation of the different submodules of the util-tools package (version 1.0.0).
 
