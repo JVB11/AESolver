@@ -8,8 +8,8 @@ This page contains links towards the API documentation of the different submodul
 
 This package has four different submodules:
 
-1. [generic_parser](API_util_tools/API_index.html)
-2. [inlist_handler](API_util_tools/API_index.html)
+1. [generic_parser](API_util_tools/generic_parser/index.html)
+2. [inlist_handler](API_util_tools/inlist_handler/index.html)
 3. [log_formatter](API_util_tools/log_formatter/index.html)
 4. [path_resolver](API_util_tools/path_resolver/index.html)
 

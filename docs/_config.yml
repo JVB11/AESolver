@@ -7,6 +7,8 @@ plugins:
 
 include: ['API_util_tools', 'API_util_tools/generic_parser', 'API_util_tools/inlist_handler', 'API_util_tools/log_formatter', 'API_util_tools/path_resolver']
 
+page_excerpts: true
+
 url: https://JVB11.github.io/AESolver/
 aux_links:
   Template Repository: https://github.com/JVB11/AESolver
