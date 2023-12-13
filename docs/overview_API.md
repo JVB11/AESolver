@@ -8,4 +8,4 @@ For each of these sub-packages API documentation is available that links towards
 
 ## README sub-package descriptions
 
-1. [util-tools sub-package](API_util_tools/README.md)
+1. [util-tools sub-package](apidoc-util-tools.md)

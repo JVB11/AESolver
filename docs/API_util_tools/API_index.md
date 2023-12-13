@@ -1,6 +1,7 @@
 ---
 layout: default
 title: API documentation of util-tools
+permalink: apidoc-util-tools.md
 ---
 
 This page contains links towards the API documentation of the different submodules of the util-tools package (version 1.0.0).
