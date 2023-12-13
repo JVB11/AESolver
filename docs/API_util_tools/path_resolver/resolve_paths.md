@@ -23,7 +23,7 @@ Functions
     str
         Absolute path to the run file directory.
 
-{% capture resolve_path_to_file %}
+
 `resolve_path_to_file(sys_arguments: list, file_name: str, default_path: str, default_run_path: str = '..') -> pathlib.Path`
 :   Resolves the path to a file with known default relative path from the base directory.
 
@@ -51,4 +51,4 @@ Functions
     ------
     FileNotFoundError
         When the corresponding file cannot be found in the programmatic paths. This is likely due to mis-specification of the 'default_path'!
-{% endcapture %}
+

@@ -20,5 +20,3 @@ Publicly Available Functions
 
 `resolve_path_to_file(sys_arguments: list, file_name: str, default_path: str, default_run_path: str = '..') -> pathlib.Path`
 :   Resolves the path to a file with known default relative path from the base directory.
-
-Additional information may be found at {{ resolve_path_to_file }}.
