@@ -8,9 +8,9 @@ This page contains links towards the API documentation of the different submodul
 
 This package has four different submodules:
 
-1. [generic_parser](/apidoc-util-tools/generic_parser/)
-2. [inlist_handler](/apidoc-util-tools/inlist_handler/)
-3. [log_formatter](/apidoc-util-tools/index_log_formatter/)
-4. [path_resolver](/apidoc-util-tools/index_path_resolver/)
+1. [generic_parser](API_util_tools/API_index.html)
+2. [inlist_handler](API_util_tools/API_index.html)
+3. [log_formatter](API_util_tools/API_index.html)
+4. [path_resolver](API_util_tools/path_resolver/index.html)
 
 whose API documentation can be accessed by clicking on the listed links.

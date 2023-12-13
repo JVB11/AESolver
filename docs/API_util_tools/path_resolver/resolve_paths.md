@@ -1,17 +1,16 @@
 ---
 layout: default
 title: Module path_resolver.resolve_paths
+permalink: /API_util_tools/path_resolver/resolve_paths.html
 ---
 
 ==================================
 Utility module containing functions used to resolve paths to files.
 
-Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
-
 Functions
 ---------
 
-`get_abspath_to_run(sys_arguments: list) -> str`
+`_get_abspath_to_run(sys_arguments: list) -> str`
 :   Get the absolute path to the run file directory.
 
     Parameters
@@ -24,6 +23,7 @@ Functions
     str
         Absolute path to the run file directory.
 
+{% capture resolve_path_to_file %}
 `resolve_path_to_file(sys_arguments: list, file_name: str, default_path: str, default_run_path: str = '..') -> pathlib.Path`
 :   Resolves the path to a file with known default relative path from the base directory.
 
@@ -51,3 +51,4 @@ Functions
     ------
     FileNotFoundError
         When the corresponding file cannot be found in the programmatic paths. This is likely due to mis-specification of the 'default_path'!
+{% endcapture %}
