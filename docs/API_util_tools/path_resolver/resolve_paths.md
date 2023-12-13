@@ -1,9 +1,8 @@
 ---
 layout: default
-title: resolve_paths API documentation
+title: Module path_resolver.resolve_paths
 ---
 
-Module path_resolver.resolve_paths
 ==================================
 Utility module containing functions used to resolve paths to files.
 
@@ -12,10 +11,9 @@ Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 Functions
 ---------
 
-    
 `get_abspath_to_run(sys_arguments: list) -> str`
 :   Get the absolute path to the run file directory.
-    
+
     Parameters
     ----------
     sys_arguments : list
@@ -26,10 +24,9 @@ Functions
     str
         Absolute path to the run file directory.
 
-    
 `resolve_path_to_file(sys_arguments: list, file_name: str, default_path: str, default_run_path: str = '..') -> pathlib.Path`
 :   Resolves the path to a file with known default relative path from the base directory.
-    
+
     Notes
     -----
     Used to hardcode relative paths in Python packages/modules.
