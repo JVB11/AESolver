@@ -8,6 +8,8 @@ permalink: /overview_API/API_util_tools/generic_parser/generic_parser.html
 
 Python module containing (super)class that handles generic parsing of arguments, and inlist reading.
 
+<a href="{{ site.github.repository_url }}/tree/main/util_tools/generic_parser/generic_parser.py" class="btn btn-github"><span class="icon"></span>View this module on GitHub</a>
+
 ## Classes
 
 `GenericParser(base_directory_name: str, full_inlist_path: pathlib.Path | None = None, base_dir: str | None = None, inlist_name: str | None = None, inlist_dir: str | None = None, inlist_suffix: str = 'in')`
