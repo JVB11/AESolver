@@ -11,8 +11,7 @@ import logging
 
 
 def value_comparison(first: typing.Any, second: typing.Any) -> bool:
-    """Returns whether two values (of any type)
-    are equal to each other.
+    """Returns whether two values (of any type) are equal to each other.
 
     Parameters
     ----------
@@ -86,9 +85,7 @@ def compare_elements(first: dict | list, second: dict | list) -> bool:
     Returns
     -------
     comparable : bool
-        Whether the elements of the first dictionary
-        match those elements (with SAME keys) in the
-        second dictionary.
+        Whether the elements of the first dictionary match those elements (with SAME keys) in the second dictionary.
     """
     # initialize the comparison bool
     comparable = True
@@ -115,8 +112,7 @@ def compare_elements(first: dict | list, second: dict | list) -> bool:
 
 
 def compare_dicts(first: dict, second: dict, len_enforced: bool = True) -> bool:
-    """Utility function that compares dictionaries
-    and their elements for equivalence.
+    """Utility function that compares dictionaries and their elements for equivalence.
 
     Parameters
     ----------
@@ -125,15 +121,12 @@ def compare_dicts(first: dict, second: dict, len_enforced: bool = True) -> bool:
     second : dict
         The second dictionary.
     len_enforced : bool, optional
-        Whether the length equivalence
-        of two dictionaries is enforced.
-        Default: True.
+        Whether the length equivalence of two dictionaries is enforced; by default True.
 
     Returns
     -------
     bool
-        Determines whether the values in
-        both dictionaries are the same.
+        Determines whether the values in both dictionaries are the same.
     """
     # check if lengths are the same, if necessary
     if len_enforced:
@@ -143,6 +136,5 @@ def compare_dicts(first: dict, second: dict, len_enforced: bool = True) -> bool:
             return False
     # compare the dictionary elements (after checking if the length is OK, when requested)
     comparable = compare_elements(first=first, second=second)
-    # return the boolean that determines whether
-    # the two dictionaries are comparable
+    # return the boolean that determines whether the two dictionaries are comparable
     return comparable

@@ -14,31 +14,20 @@ def check_assertions(
     element_type: typing.Type | None = None,
     element_length: int | None = None,
 ) -> None:
-    """Assertion helper function used to check if
-    a given input element is of a certain size,
-    and its elements are of a certain type and
-    size (if needed).
+    """Assertion helper function used to check if a given input element is of a certain size, and its elements are of a certain type and size (if needed).
 
     Parameters
     ----------
     my_val : Any
         The value for which assertions will be checked.
     top_type : typing.Type | None, optional
-        The type of 'my_val', which will be checked
-        if it is equal to None.
-        Default: None.
+        The type of 'my_val', which will be checked if it is equal to None; by default None.
     top_length : int | None, optional
-        The length of the value that will be checked,
-        if not None.
-        Default: None.
+        The length of the value that will be checked, if not None; by default None.
     element_type : typing.Type | None, optional
-        The expected type of an element of 'my_val',
-        which will be checked, if not None.
-        Default: None.
+        The expected type of an element of 'my_val', which will be checked, if not None; by default None.
     element_length : int | None, optional
-        The length of an element of 'my_val',
-        which will be checked, if not None.
-        Default: None.
+        The length of an element of 'my_val', which will be checked, if not None; by default None.
     """
     # check if we need to check value type
     if top_type:

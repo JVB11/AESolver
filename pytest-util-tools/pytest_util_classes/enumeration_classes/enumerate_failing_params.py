@@ -19,8 +19,7 @@ class EnumerateFailingParameterValues(Enum):
         Parameters
         ----------
         name : str
-            The name of the pytest parameter for which a failing parameter needs to
-            be returned.
+            The name of the pytest parameter for which a failing parameter needs to be returned.
 
         Returns
         -------
@@ -31,7 +30,6 @@ class EnumerateFailingParameterValues(Enum):
             return cls.__getitem__(name).value
         except AttributeError:
             print(
-                f'Attribute {name} does not exist in this enumeration object! '
-                f'Now exiting.'
+                f'Attribute {name} does not exist in this enumeration object! Now exiting.'
             )
             sys.exit()

@@ -1,5 +1,4 @@
-"""Factory module used to enumerate the common input and
-expected output values for tests.
+"""Factory module used to enumerate the common input and expected output values for tests.
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
@@ -24,27 +23,21 @@ logger = logging.getLogger(__name__)
 
 # factory class for enumeration of tests
 class EnumeratedValues(Enum):
-    """Enumeration class used to store common input
-    and expected output values for tests.
+    """Enumeration class used to store common input and expected output values for tests.
     """
 
     @classmethod
     def get_value(
         cls, my_key: str, dtype_buffered: 'npt.DTypeLike | None' = None
     ) -> int | float | np.ndarray | list | str:
-        """Generic getter method used to retrieve
-        buffered and non-buffered values of
-        enumeration members.
+        """Generic getter method used to retrieve buffered and non-buffered values of enumeration members.
 
         Parameters
         ----------
         my_key : str
             The enumeration member name.
         dtype_buffered : npt.DTypeLike | None, optional
-            If None, ignore this parameter.
-            If not None, use this parameter to specify a
-            specific buffered numpy array type.
-            Default value: None.
+            If None, ignore this parameter. If not None, use this parameter to specify a specific buffered numpy array type; by default None.
 
         Returns
         -------
@@ -64,8 +57,7 @@ class EnumeratedValues(Enum):
                 )
         except KeyError:
             print(
-                f'Unknown member of enumeration class ({my_key}). '
-                f'Now exiting.'
+                f'Unknown member of enumeration class ({my_key}). Now exiting.'
             )
             sys.exit()
         except TypeError:

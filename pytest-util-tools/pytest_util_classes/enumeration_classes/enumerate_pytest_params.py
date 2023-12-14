@@ -49,8 +49,7 @@ class EnumeratePytestParameters(Enum):
                 )
         except AttributeError:
             print(
-                f'Attribute {name} does not exist in this enumeration object! '
-                f'Now exiting.'
+                f'Attribute {name} does not exist in this enumeration object! Now exiting.'
             )
             sys.exit()
 
