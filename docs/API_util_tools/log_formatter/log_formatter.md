@@ -4,11 +4,11 @@ title: log-formatting functions API reference
 permalink: /overview_API/API_util_tools/log_formatter/log_formatter.html
 ---
 
-==================================
+# log_formatter.log_formatter module
+
 Python module containing functions used to set up the root logger to format log messages in a nice way.
 
-Functions
----------
+## Functions
 
 `adjust_root_logger_level(my_root_logger: logging.RootLogger, logger_info_dict: dict)`
 :   Function used to adjust the root logger level based on specific arguments in the logger information dictionary.

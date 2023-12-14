@@ -4,12 +4,11 @@ title: path-resolving functions API reference
 permalink: /overview_API/API_util_tools/path_resolver/resolve_paths.html
 ---
 
-===========================
+# path_resolver.resolve_paths module
 
 Utility module containing functions used to resolve paths to files.
 
-Functions
----------
+## Functions
 
 `_get_abspath_to_run(sys_arguments: list) -> str`
 :   Get the absolute path to the run file directory.

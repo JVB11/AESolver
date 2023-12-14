@@ -4,11 +4,11 @@ title: GenericParser class API reference
 permalink: /overview_API/API_util_tools/generic_parser/generic_parser.html
 ---
 
-====================================
+# generic_parser.generic_parser module
+
 Python module containing (super)class that handles generic parsing of arguments, and inlist reading.
 
-Classes
--------
+## Classes
 
 `GenericParser(base_directory_name: str, full_inlist_path: pathlib.Path | None = None, base_dir: str | None = None, inlist_name: str | None = None, inlist_dir: str | None = None, inlist_suffix: str = 'in')`
 :   (Super)Class containing generic methods and arguments used for parsing of input. Input can either be read from the command-line argument parser, or from inlist files.

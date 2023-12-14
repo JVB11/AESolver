@@ -4,11 +4,11 @@ title: TomlInlistHandler class API reference
 permalink: /overview_API/API_util_tools/inlist_handler/toml_inlist_handler.html
 ---
 
-=========================================
-Python module that defines the class needed to parse toml-format inlists and retrieves the necessary information.
+# inlist_handler.toml_inlist_handler module
 
-Classes
--------
+API reference for Python module that defines the class needed to parse toml-format inlists and retrieves the necessary information.
+
+## Classes
 
 `TomlInlistHandler()`
 :   Python class that handles how toml-format inlists are handled.

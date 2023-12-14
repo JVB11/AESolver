@@ -4,21 +4,17 @@ title: index of generic_parser module
 permalink: /overview_API/API_util_tools/generic_parser/index.html
 ---
 
-Module generic_parser
+# Index for generic_parser module
 
-=====================
-
-Python package initialization file for package containing a generic class that can be subclassed to provide a parser used to parse arguments from the command line and/or an inlist.
+Index for package containing a generic class that can be subclassed to provide a parser used to parse arguments from the command line and/or an inlist.
 
 Detailed information on the available private and publicly available methods is available in the [module API reference](generic_parser.html).
 
-Sub-modules
------------
+## Sub-modules
 
 * generic_parser.generic_parser
 
-Classes
--------
+## Classes
 
 `GenericParser(base_directory_name: str, full_inlist_path: pathlib.Path | None = None, base_dir: str | None = None, inlist_name: str | None = None, inlist_dir: str | None = None, inlist_suffix: str = 'in')`
 :   (Super)Class containing generic methods and arguments used for parsing of input. Input can either be read from the command-line argument parser, or from inlist files.

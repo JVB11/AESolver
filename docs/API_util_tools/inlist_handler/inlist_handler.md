@@ -4,11 +4,11 @@ title: InlistHandler class API reference
 permalink: /overview_API/API_util_tools/inlist_handler/inlist_handler.html
 ---
 
-====================================
-Python module that defines the class needed to parse custom-format inlists and retrieve the necessary information for use in Python programs.
+# inlist_handler.inlist_handler module
 
-Classes
--------
+API reference for Python module that defines the class needed to parse custom-format inlists and retrieve the necessary information for use in Python programs.
+
+## Classes
 
 `InlistHandler()`
 :   Python class that handles how inlists are parsed.
