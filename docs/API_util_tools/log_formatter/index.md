@@ -1,7 +1,6 @@
 ---
 layout: default
 title: index for log_formatter module
-permalink: /log_formatter/index.html
 ---
 
 Module log_formatter
@@ -10,7 +9,7 @@ Module log_formatter
 
 Initialization file for the python module that contains functions used to set up the root logger, so that it logs messages in a nice format.
 
-Detailed information on the available private and publicly available functions is available in the [module API reference](API_util_tools/log_formatter/log_formatter.html).
+Detailed information on the available private and publicly available functions is available in the [module API reference](log_formatter.html).
 
 Sub-modules
 -----------

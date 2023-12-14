@@ -1,7 +1,6 @@
 ---
 layout: default
 title: GenericParser class API reference
-permalink: /generic_parser/generic_parser.html
 ---
 
 ====================================

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: index of inlist_handler module
-permalink: /inlist_handler/index.html
 ---
 
 Module inlist_handler
@@ -12,8 +11,8 @@ Initialization file for the python module that contains classes used to load dat
 
 Detailed information on the available private and publicly available functions is available in the API reference of both classes:
 
-1.[API reference of inlist_handler](API_util_tools/inlist_handler/inlist_handler.html)
-2.[API reference of toml_inlist_handler](API_util_tools/inlist_handler/toml_inlist_handler.html)
+1.[API reference of inlist_handler](inlist_handler.html)
+2.[API reference of toml_inlist_handler](toml_inlist_handler.html)
 
 Sub-modules
 -----------

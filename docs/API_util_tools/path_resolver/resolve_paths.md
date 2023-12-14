@@ -1,7 +1,6 @@
 ---
 layout: default
 title: path-resolving functions API reference
-permalink: /path_resolver/resolve_paths.html
 ---
 
 ===========================

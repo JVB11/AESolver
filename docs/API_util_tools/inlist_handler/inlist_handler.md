@@ -1,7 +1,6 @@
 ---
 layout: default
 title: InlistHandler class API reference
-permalink: /inlist_handler/inlist_handler.html
 ---
 
 ====================================

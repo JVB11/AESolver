@@ -1,7 +1,6 @@
 ---
 layout: default
 title: index of generic_parser module
-permalink: /generic_parser/index.html
 ---
 
 Module generic_parser
@@ -10,7 +9,7 @@ Module generic_parser
 
 Python package initialization file for package containing a generic class that can be subclassed to provide a parser used to parse arguments from the command line and/or an inlist.
 
-Detailed information on the available private and publicly available methods is available in the [module API reference](API_util_tools/generic_parser/generic_parser.html).
+Detailed information on the available private and publicly available methods is available in the [module API reference](generic_parser.html).
 
 Sub-modules
 -----------

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: index for path_resolver module
-permalink: /path_resolver/index.html
 ---
 
 Module path_resolver
@@ -10,7 +9,7 @@ Module path_resolver
 
 Initialization file for the module containing functions used to resolve paths.
 
-Detailed information on the available private and publicly available functions is available in the [module API reference](API_util_tools/path_resolver/resolve_paths.html).
+Detailed information on the available private and publicly available functions is available in the [module API reference](resolve_paths.html).
 
 Sub-modules
 -----------
