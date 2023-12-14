@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools", "wheel", "numpy", "scipy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'num-tools'
+description = """
+Contains several high-performance numerical packages.
+"""
+requires-python = '>=3.11'
+keywords = ['numerical', 'tools']
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ['pytest', 'numpy', 'scipy', 'myfnd']
+dynamic = ["version", "readme"]
+authors = [{ name = "Jordan Van Beeck", email = "jordanvanbeeck@hotmail.com" }]
+
+[project.urls]
+"Homepage" = "https://github.com/JVB11/AESolver"
+
+[tool.setuptools]
+platforms = ['Linux', 'MacOS']
+packages = ['carr_conv', 'num_deriv']
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = { attr = 'carr_conv.__version__' }
+readme = { file = ['README.md', 'readme.md'] }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests/carr_conv", "tests/num_deriv"]
