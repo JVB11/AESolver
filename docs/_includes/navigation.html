@@ -1,5 +1,12 @@
 <div class="sidenav">
     {% for item in site.data.navigation %}
-      <a href="{{site.baseurl}}{{ item.link }}">{{ item.name }}</a>
+      {% if item.subcategories != null %}
+        <a href="{{site.baseurl}}{{item.link}}">{{ item.name }}</a>
+        {% for subcategory in item.subcategories %}
+          <a href="{{site.baseurl}}{{item.link}}{{category.subhref}}" font-size="15px">{{ category.subtitle }}</a>
+        {% endfor %}
+      {% else %}
+        <a href="{{site.baseurl}}{{ item.link }}">{{ item.name }}</a>
+      {% endif %}
     {% endfor %}
 </div>
