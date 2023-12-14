@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: api_module_page
 title: path-resolving functions API reference
 permalink: /overview_API/API_util_tools/path_resolver/resolve_paths.html
 ---
@@ -7,6 +7,8 @@ permalink: /overview_API/API_util_tools/path_resolver/resolve_paths.html
 # path_resolver.resolve_paths module
 
 Utility module containing functions used to resolve paths to files.
+
+{% include button_api_module.html referenced_path="/tree/main/util-tools/path_resolver/resolve_paths.py" %}
 
 ## Functions
 

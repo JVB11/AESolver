@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: api_module_page
 title: InlistHandler class API reference
 permalink: /overview_API/API_util_tools/inlist_handler/inlist_handler.html
 ---
@@ -7,6 +7,8 @@ permalink: /overview_API/API_util_tools/inlist_handler/inlist_handler.html
 # inlist_handler.inlist_handler module
 
 API reference for Python module that defines the class needed to parse custom-format inlists and retrieve the necessary information for use in Python programs.
+
+{% include button_api_module.html referenced_path="/tree/main/util-tools/inlist_handler/inlist_handler.py" %}
 
 ## Classes
 

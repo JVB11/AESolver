@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: api_module_page
 title: GenericParser class API reference
 permalink: /overview_API/API_util_tools/generic_parser/generic_parser.html
 ---
@@ -8,7 +8,7 @@ permalink: /overview_API/API_util_tools/generic_parser/generic_parser.html
 
 Python module containing (super)class that handles generic parsing of arguments, and inlist reading.
 
-{% include button.html referenced_path="/tree/main/util-tools/generic_parser/generic_parser.py" %}
+{% include button_api_module.html referenced_path="/tree/main/util-tools/generic_parser/generic_parser.py" %}
 
 ## Classes
 

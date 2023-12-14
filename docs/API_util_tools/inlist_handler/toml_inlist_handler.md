@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: api_module_page
 title: TomlInlistHandler class API reference
 permalink: /overview_API/API_util_tools/inlist_handler/toml_inlist_handler.html
 ---
@@ -7,6 +7,8 @@ permalink: /overview_API/API_util_tools/inlist_handler/toml_inlist_handler.html
 # inlist_handler.toml_inlist_handler module
 
 API reference for Python module that defines the class needed to parse toml-format inlists and retrieves the necessary information.
+
+{% include button_api_module.html referenced_path="/tree/main/util-tools/inlist_handler/toml_inlist_handler.py" %}
 
 ## Classes
 

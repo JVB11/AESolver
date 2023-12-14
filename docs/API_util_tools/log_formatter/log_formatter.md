@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: api_module_page
 title: log-formatting functions API reference
 permalink: /overview_API/API_util_tools/log_formatter/log_formatter.html
 ---
@@ -7,6 +7,8 @@ permalink: /overview_API/API_util_tools/log_formatter/log_formatter.html
 # log_formatter.log_formatter module
 
 Python module containing functions used to set up the root logger to format log messages in a nice way.
+
+{% include button_api_module.html referenced_path="/tree/main/util-tools/log_formatter/log_formatter.py" %}
 
 ## Functions
 
