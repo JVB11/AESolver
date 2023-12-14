@@ -1,6 +1,6 @@
 ---
 layout: default
-title: API overview
+title: API reference overview
 ---
 
 The AESolver framework contains several sub-packages.
