@@ -2,9 +2,11 @@
     {% for item in site.data.navigation %}
       {% if item.subcategories != null %}
         <a href="{{site.baseurl}}{{item.link}}">{{ item.name }}</a>
+        <ul>
         {% for subcategory in item.subcategories %}
           <a href="{{site.baseurl}}{{item.link}}{{category.subhref}}" font-size="15px">{{ category.subtitle }}</a>
         {% endfor %}
+        </ul>
       {% else %}
         <a href="{{site.baseurl}}{{ item.link }}">{{ item.name }}</a>
       {% endif %}
