@@ -1,7 +1,7 @@
 ---
 layout: default
 title: log-formatting functions API reference
-permalink: /API_util_tools/log_formatter/log_formatter.html
+permalink: /log_formatter/log_formatter.html
 ---
 
 ==================================

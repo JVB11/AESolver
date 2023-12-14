@@ -1,7 +1,7 @@
 ---
 layout: default
 title: index of inlist_handler module
-permalink: /API_util_tools/inlist_handler/index.html
+permalink: /inlist_handler/index.html
 ---
 
 Module inlist_handler

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: index for log_formatter module
-permalink: /API_util_tools/log_formatter/index.html
+permalink: /log_formatter/index.html
 ---
 
 Module log_formatter
