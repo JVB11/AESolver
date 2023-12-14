@@ -8,7 +8,7 @@ permalink: /overview_API/API_util_tools/generic_parser/generic_parser.html
 
 Python module containing (super)class that handles generic parsing of arguments, and inlist reading.
 
-<a href="{{ site.github.repository_url }}/tree/main/util_tools/generic_parser/generic_parser.py" class="btn btn-github"><span class="icon"></span>View this module on GitHub</a>
+{% include button.html referenced_path="/tree/main/util-tools/generic_parser/generic_parser.py" %}
 
 ## Classes
 
