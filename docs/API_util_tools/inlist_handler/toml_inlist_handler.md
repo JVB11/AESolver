@@ -1,7 +1,7 @@
 ---
 layout: default
 title: TomlInlistHandler class API reference
-permalink: API_util_tools/inlist_handler/toml_inlist_handler.html
+permalink: /overview_API/API_util_tools/inlist_handler/toml_inlist_handler.html
 ---
 
 =========================================

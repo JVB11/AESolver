@@ -1,7 +1,7 @@
 ---
 layout: default
 title: index for path_resolver module
-permalink: /API_util_tools/path_resolver/index.html
+permalink: /overview_API/API_util_tools/path_resolver/index.html
 ---
 
 Module path_resolver

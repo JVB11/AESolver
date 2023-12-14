@@ -1,7 +1,7 @@
 ---
 layout: default
 title: index of generic_parser module
-permalink: API_util_tools/generic_parser/index.html
+permalink: /overview_API/API_util_tools/generic_parser/index.html
 ---
 
 Module generic_parser
