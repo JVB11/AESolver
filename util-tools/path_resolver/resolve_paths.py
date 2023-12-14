@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 
 
-def get_abspath_to_run(sys_arguments: list) -> str:
+def _get_abspath_to_run(sys_arguments: list) -> str:
     """Get the absolute path to the run file directory.
 
     Parameters
@@ -63,7 +63,7 @@ def resolve_path_to_file(
         return my_default_path.resolve()
     else:
         # get the path to the file directory containing the run file
-        my_run_file_path = Path(get_abspath_to_run(sys_arguments=sys_arguments))
+        my_run_file_path = Path(_get_abspath_to_run(sys_arguments=sys_arguments))
         # check if the full path exists
         if (
             my_full_path := (
