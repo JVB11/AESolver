@@ -8,6 +8,6 @@ Specifically, this module contains:
 3. the path_resolver module used to resolve paths of inlists;
 4. the log_formatter module used to determine the behavior of the root Logger object.
 
-For additional information on these specific modules you may consult the [API documentation](API/API_index.md).
+For additional information on these specific modules you may consult the [API documentation](https://jvb11.github.io/AESolver/overview_API/API_util_tools/API_index.html).
 
 ### Author: Jordan Van Beeck
