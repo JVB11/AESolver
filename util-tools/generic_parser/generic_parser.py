@@ -21,8 +21,7 @@ logger = logging.getLogger(__name__)
 
 # class containing generic arguments and methods used for parsing
 class GenericParser:
-    """(Super)Class containing generic methods and arguments used for parsing of input.
-    Input can either be read from the command-line argument parser, or from inlist files.
+    """(Super)Class containing generic methods and arguments used for parsing of input. Input can either be read from the command-line argument parser, or from inlist files.
 
     Notes
     -----
@@ -44,8 +43,7 @@ class GenericParser:
     inlist_name : str | None, optional
         Initialization mode 2: The name of the inlist file, by default None (i.e. opting to perform actions in this class using initialization option 1).
     inlist_dir : str or None, optional
-        Initialization mode 2: The name of the inlists directory in the base directory.
-        If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
+        Initialization mode 2: The name of the inlists directory in the base directory. If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
     inlist_suffix : str, optional
         Initialization mode 2: The suffix of the inlist file (only used for initialization mode 2), by default 'in'.
     """
@@ -129,7 +127,7 @@ class GenericParser:
             full_inlist_path=full_inlist_path,
             base_directory_name=base_directory_name,
             my_exceptions=_exception_list,
-        )  # because this is the last to be run, this is also the DEFAULT/PREFERRED INITIALZATION MODE
+        )  # because this is the last to be run, this is also the DEFAULT/PREFERRED INITIALIZATION MODE
         # if one of the two modes succeeded: path initialized!
         if (_mode_1_succeeded and not _mode_2_succeeded) | (
             _mode_2_succeeded and not _mode_1_succeeded
@@ -364,14 +362,12 @@ class GenericParser:
         my_path : str
             The path to the file or directory.
         is_file : bool, optional
-            If True, check a path to a file. If False, check a path to directory.
-            Default: True
+            If True, check a path to a file. If False, check a path to directory; by default True.
 
         Returns
         -------
         my_path : str
-            The valid path. Will not be returned if path is not valid; in that case
-            a TypeError shall be raised.
+            The valid path. Will not be returned if path is not valid; in that case a TypeError shall be raised.
         """
         # generate the path object
         _my_path_object = Path(my_path)
@@ -387,10 +383,7 @@ class GenericParser:
 
     # prepare to read arguments: read inlist if necessary
     def _prepare_read_args(self):
-        """Internal method used to prepare to read arguments: reads the inlist
-        if necessary, and otherwise generates the data dictionary from command-line
-        arguments.
-        """
+        """Internal method used to prepare to read arguments: reads the inlist if necessary, and otherwise generates the data dictionary from command-line arguments."""
         # using command-line arguments
         if self._args.no_inlist:
             self._data_read_dictionary = vars(self._args)
@@ -408,9 +401,7 @@ class GenericParser:
                     )
                 except ImportError:
                     logger.error(
-                        'Cannot load the tomllib module, which is probably because of'
-                        ' a wrong python version being used. Use custom-style inlists'
-                        ' instead! Now exiting.'
+                        'Cannot load the tomllib module, which is probably because of a wrong python version being used. Use custom-style inlists instead! Now exiting.'
                     )
                     sys.exit()
             # custom inlist
@@ -421,23 +412,16 @@ class GenericParser:
 
     # generic method used to read list of tuples of arguments into dictionary
     def read_in_to_dict(self, tuple_list):
-        """Generic method used to read list of tuples of arguments in to a
-        dictionary.
+        """Generic method used to read list of tuples of arguments in to a dictionary.
 
         Notes
         -----
-        If a(n optional) third value is supplied in the tuple list,
-        it should be provided for all input arguments.
-        Use False for the negating bool variable (optional third entry)
-        for non-boolean input!
+        If a(n optional) third value is supplied in the tuple list, it should be provided for all input arguments. Use False for the negating bool variable (optional third entry) for non-boolean input!
 
         Parameters
         ----------
         tuple_list : list[tuple]
-            List containing tuples that represent elements of the dictionary:
-            First element is the dictionary key. The second element is
-            the dictionary value. The optional third element is a boolean
-            that inverses a boolean dictionary value if True.
+            List containing tuples that represent elements of the dictionary: first element is the dictionary key. The second element is the dictionary value. The optional third element is a boolean that inverses a boolean dictionary value if True.
 
         Returns
         -------
@@ -465,17 +449,12 @@ class GenericParser:
 
         Notes
         -----
-        If a(n optional) second value is supplied in the argument (tuple) list,
-        it should be provided for all input arguments.
-        Use False for the negating bool variable (optional second entry)
-        for non-boolean input!
+        If a(n optional) second value is supplied in the argument (tuple) list, it should be provided for all input arguments. Use False for the negating bool variable (optional second entry) for non-boolean input!
 
         Parameters
         ----------
         argument_list : list[str] or list[tuple]
-            List containing arguments that represent the names of the arguments
-            read in the inlist or argumentparser. Optional second (tuple) value
-            is a boolean that inverses a boolean value if True.
+            List containing arguments that represent the names of the arguments read in the inlist or argumentparser. Optional second (tuple) value is a boolean that inverses a boolean value if True.
 
         Returns
         -------
@@ -498,8 +477,7 @@ class GenericParser:
 
     # access elements in (possibly nested) dicts
     def get_ha(self, ha_dict, index_val):
-        """Hierarchical indexing utility method used to access
-        (possibly nested) dictionary elements.
+        """Hierarchical indexing utility method used to access (possibly nested) dictionary elements.
 
         Parameters
         ----------
@@ -549,8 +527,7 @@ class GenericParser:
 
     # read custom inlist input arguments
     def read_custom_args(self):
-        """Method used to read relevant arguments from the information parsed from
-        a custom inlist.
+        """Method used to read relevant arguments from the information parsed from a custom inlist.
 
         Notes
         -----
@@ -560,8 +537,7 @@ class GenericParser:
 
     # read toml input arguments
     def read_toml_args(self):
-        """Method used to read relevant arguments from the parsed
-        toml inlist file.
+        """Method used to read relevant arguments from the parsed toml inlist file.
 
         Notes
         -----

@@ -35,16 +35,14 @@ def set_up_root_logger(my_level=logging.INFO):
 def adjust_root_logger_level(
     my_root_logger: logging.RootLogger, logger_info_dict: dict
 ):
-    """Function used to adjust the root logger level based on
-    specific arguments in the logger information dictionary.
+    """Function used to adjust the root logger level based on specific arguments in the logger information dictionary.
 
     Parameters
     ----------
     my_root_logger : logging.RootLogger
         The root logger object.
     logger_info_dict : dict
-        Contains the 'debug' and 'verbose' keys that define whether
-        logger level needs to be adjusted.
+        Contains the 'debug' and 'verbose' keys that define whether the logger level needs to be adjusted.
 
     Returns
     -------

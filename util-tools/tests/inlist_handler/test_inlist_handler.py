@@ -17,7 +17,6 @@ def inlist_file(tmp_path_factory):
     my_path_default = tmp_path_factory.getbasetemp() / 'defaults/'
     my_path_default.mkdir(parents=True, exist_ok=True)
     my_path_default = my_path_default / 'test.defaults'
-    # my_path_default = tmp_path_factory.mktemp("defaults") / "test.defaults"
     # construct the text for the inlist and defaults file
     my_text = """
         % Test inlist
@@ -73,7 +72,6 @@ class TestTomlInlistHandler:
     """Tests the TomlInlistHandler class"""
 
     # attribute type declarations
-    # my_file_path: pathlib.Path
     expected_output: dict
 
     def test_toml_read(self, inlist_file):

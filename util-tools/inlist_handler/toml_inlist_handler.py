@@ -58,8 +58,7 @@ class TomlInlistHandler:
     # define the main method that retrieves the inlist input
     @classmethod
     def get_inlist_values(cls, inlist_path):
-        """Utility method that retrieves the inlist values, as parsed
-        from the toml inlist file.
+        """Utility method that retrieves the inlist values, as parsed from the toml inlist file.
 
         Parameters
         ----------
@@ -69,8 +68,7 @@ class TomlInlistHandler:
         Returns
         -------
         toml_input_data : dict
-            Contains the key-value pairs of the input parameters
-            specified in the inlist.
+            Contains the key-value pairs of the input parameters specified in the inlist.
         """
         # get the parsed toml-format input data
         toml_input_data = cls._parse_toml_inlist(inlist_path=inlist_path)

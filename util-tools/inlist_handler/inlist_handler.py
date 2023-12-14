@@ -26,8 +26,7 @@ class InlistHandler:
     def _multi_check_method(
         value_string, check_values, any_check=False, all_check=False
     ):
-        """Internal utility method used to check a condition / multiple conditions
-        for the typing.
+        """Internal utility method used to check a condition / multiple conditions for the typing.
 
         Parameters
         ----------
@@ -36,11 +35,9 @@ class InlistHandler:
         check_values: list[str]
             Specific values of the string that need to be checked.
         any_check: bool, optional
-            If True, perform a 'any' check. If False, do not perform a 'any' check.
-            Default: False.
+            If True, perform a 'any' check. If False, do not perform a 'any' check; by default False.
         all_check: bool, optional
-            If True, perform a 'all' check. If False, do not perform a 'all' check.
-            Default: False.
+            If True, perform a 'all' check. If False, do not perform a 'all' check; by default False.
 
         Returns
         -------
@@ -103,8 +100,7 @@ class InlistHandler:
     # ---------------------------------------------------------- #
     @classmethod
     def _typer(cls, value_string):
-        """Internal utility method used to define infer types from the input
-        in the inlists.
+        """Internal utility method used to define infer types from the input in the inlists.
 
         Parameters
         ----------
@@ -164,23 +160,19 @@ class InlistHandler:
     # ------------------------------------------- #
     @classmethod
     def _parse_inlist(cls, inlist_path, dictionary_inlist=None):
-        """Internal utility method that parses a user inlist and
-        obtains the values of the input parameters.
+        """Internal utility method that parses a user inlist and obtains the values of the input parameters.
 
         Parameters
         ----------
         inlist_path: str
             Name of the inlist used for the iterative prewhitening run.
         dictionary_inlist: dict or None, optional
-            Will contain (updated) key-value pairs of the values specified
-            in the inlist. If None, no key-value pairs are specified.
-            Default: None.
+            Will contain (updated) key-value pairs of the values specified in the inlist. If None, no key-value pairs are specified; by default None.
 
         Returns
         -------
         dictionary_inlist: dict
-            Contains the (updated) key-value pairs of the values specified
-            in the inlist.
+            Contains the (updated) key-value pairs of the values specified in the inlist.
         """
         # make immutable argument
         if dictionary_inlist is None:
@@ -232,14 +224,12 @@ class InlistHandler:
     # ------------------------------------------------------------------------------- #
     @classmethod
     def _get_default_inlist_values(cls, inlist_path):
-        """Class method that obtains the default values obtained from the inlist:
-        'xxxx.defaults'.
+        """Class method that obtains the default values obtained from the inlist: 'xxxx.defaults'.
 
         Parameters
         ----------
         inlist_path: str
-            The name of the inlist from which the .defaults inlist name
-            will be reconstructed.
+            The name of the inlist from which the .defaults inlist name will be reconstructed.
 
         Raises
         ------
@@ -249,8 +239,7 @@ class InlistHandler:
         Returns
         -------
         dict
-            Contains the key-value pairs of the values specified in
-            the inlist containing the defaults.
+            Contains the key-value pairs of the values specified in the inlist containing the defaults.
         """
         # obtain the matches for creating the path to the defaults file
         _defaults_matches = cls.compiled_regex_defaults.match(inlist_path)
@@ -271,8 +260,7 @@ class InlistHandler:
     # -------------------------------------------------------- #
     @classmethod
     def get_inlist_values(cls, inlist_path):
-        """Utility method that retrieves the default inlist values, and updates them,
-        if necessary.
+        """Utility method that retrieves the default inlist values, and updates them, if necessary.
 
         Parameters
         ----------

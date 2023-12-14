@@ -1,5 +1,4 @@
-"""Pytest module for the 'toml_inlist_handler'
-module.
+"""Pytest module for the 'toml_inlist_handler' module.
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
@@ -47,7 +46,6 @@ class TestTomlInlistHandler:
     """Tests the TomlInlistHandler class"""
 
     # attribute type declarations
-    # my_file_path: pathlib.Path
     expected_output: dict
 
     def test_toml_read(self, toml_file):
