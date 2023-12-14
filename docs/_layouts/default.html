@@ -8,6 +8,7 @@
     {% include head-custom.html %}
 
 {% seo %}
+    {% include nav-style.html %}
   </head>
 
   <body>
@@ -29,8 +30,9 @@
       </div>
     </header>
 
-    <div class="container">
-      <section id="main_content">
+    {% include navigation.html %}
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="container">
         {{ content }}
       </section>
     </div>
