@@ -1,0 +1,47 @@
+# ignore pycache
+*_custom_build.cpython*
+
+# ignore cython-built files
+*libcpp_ld_funcs.cpp
+
+# ignore googletest build files
+/ld_funcs/cmbuild/*
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Egg-info files
+*.egg-info
+
+# Build directory
+build/*

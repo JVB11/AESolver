@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools", "wheel", "Cython", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'ld_funcs'
+description = """
+Contains methods to compute limb-darkening functions, implemented in C++ and interfaced with Python using Cython.
+"""
+requires-python = ">=3.11"
+authors = [{ name = "Jordan Van Beeck", email = "jordanvanbeeck@hotmail.com" }]
+license = { file = "LICENSE" }
+dynamic = ["readme", "version"]
+dependencies = ["numpy", "cython", "pytest"]
+
+[project.urls]
+"Homepage" = "https://github.com/JVB11/AESolver"
+
+[tool.setuptools]
+platforms = ['Linux', 'MacOS']
+py-modules = ["_custom_build"]
+zip-safe = false
+
+[tool.setuptools.cmdclass]
+build_py = "_custom_build.build_py"
+
+[tool.setuptools.packages]
+# scan implicitly for packages (equivalent to 'find_packages()')
+find = {}
+
+[tool.setuptools.dynamic]
+version = { attr = 'ld_funcs.__version__' }
+readme = { file = ['README.md', 'readme.md'] }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
