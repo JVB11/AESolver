@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools", "wheel", "numpy", "scipy", "numexpr", "cython"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'stat-tools'
+description = """
+Contains several high-performance packages used to generate descriptive statistics for plotting data.
+"""
+requires-python = '>=3.11'
+keywords = ['numerical', 'tools']
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ['pytest', 'numpy', 'scipy', 'numexpr', 'cython']
+dynamic = ["version", "readme"]
+authors = [{ name = "Jordan Van Beeck", email = "jordanvanbeeck@hotmail.com" }]
+
+[project.urls]
+"Homepage" = "https://github.com/JVB11/AESolver"
+
+[tool.setuptools]
+platforms = ['Linux', 'MacOS']
+py-modules = ['_custom_build']
+packages = [
+    'hogg_jacky',
+    'hogg_jacky.typing_info',
+    'hogg_jacky.shared',
+    'hogg_jacky.cython_jacky',
+    'hogg_jacky.cython_jacky.lib',
+]
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = { attr = 'hogg_jacky.__version__' }
+readme = { file = ['README.md', 'readme.md'] }
+
+[tool.setuptools.cmdclass]
+build_py = "_custom_build.build_py"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests/hogg_jacky"]
