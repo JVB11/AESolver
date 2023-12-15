@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'py-combinations'
+description = "Contains packages that compute combinations and pairing functions."
+requires-python = ">=3.11"
+keywords = ['combinatorics', 'pairing functions']
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ['numpy', 'pytest']
+dynamic = ["version", "readme"]
+authors = [{ name = "Jordan Van Beeck", email = "jordanvanbeeck@hotmail.com" }]
+
+[project.urls]
+"Homepage" = "https://github.com/JVB11/AESolver"
+
+[tool.setuptools]
+platforms = ['Linux', 'MacOS']
+packages = ['py_combinations', 'pairing_functions']
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = { attr = 'py_combinations.__version__' }
+readme = { file = ['README.md', 'readme.md'] }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
