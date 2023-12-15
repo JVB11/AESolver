@@ -1,0 +1,307 @@
+# Table that specifies computation options
+[computation]
+# perform pre-check in parallel way
+parallel_pre_check = false
+# perform parallel mode coupling computations
+parallel_mode_coupling = false
+# define the number of parallel processes
+nr_parallel_processes = 8
+# ANGULAR INTEGRATION
+# define the default numerical integration method
+integration_method = 'trapz'
+# define whether to always use Chebyshev-Gauss quadrature
+# for angular integrals instead of the 'integration_method'
+angular.use_cheby = false
+# determine order of Chebyshev-Gauss quadrature by
+# specifying (integer) multiplier of size of angular mu array
+angular.cheby_mul = 4
+# determine whether we only use Chebyshev-Gauss quadrature
+# when the integration blows up: i.e. if the integration result
+# is greater than the specified 'cheby_blow_up_fac'.
+angular.blow_up_protect = false
+# define the (angular Chebyshev-Gauss quadrature) blow up factor
+angular.blow_up_fac = 100000.0
+# GENERAL COMPUTATION DECIDING ARGUMENT
+# define whether you want to compute a grid of models
+compute_grid_models = false
+# define whether you want to compute a coupling coefficient profile 
+# NOTE: this is interactive, as you need to select the specific mode triad among several options! PLEASE do not set this to True when you are unable to interact with the command line.
+compute_coefficient_profile = true
+# define whether you want to display progress
+display_progress = true
+
+
+# Table that checks verbosity for run
+[verbosity-debug]
+# print verbosely (BOOLEAN)
+verbose = false
+# print debug statements (BOOLEAN)
+debug = false
+# compute debug information and display it after computations
+get_debug_info = false
+
+
+# Table that holds information on the save options
+[saving]
+# SOLVE information
+# SOLVE - base directory: the base directory used for the saving
+solve.base_dir = '.'
+# SOLVE - save directory (output directory)
+solve.save_dir = ''
+# SOLVE - extra specifier (additional specifier for the save name)
+solve.extra_specifier = ''
+# SOLVE - save format (file format for the saved files)
+solve.save_format = 'hdf5'
+# PLOT information
+# PLOT - base directory: the base directory used for the saving
+plot.base_dir = '.'
+# PLOT - save directory (output directory, relative from base (save) dir)
+plot.save_dir = 'figure_output'
+# PLOT - extra specifier (additional specifier for the save name)
+plot.extra_specifier = ''
+# PLOT - save formats (stores under which formats the plots need to be saved)
+plot.save_formats = ['pdf', 'png']
+# PLOT SPECIFIC information
+# PLOT - SPECIFIC - save name for the resonance sharpness plot
+plot.sharpness.save_name = 'resonance_sharpness_models'
+# PLOT - SPECIFIC - save subdir for the resonance sharpness plots (relative to the save dir)
+plot.sharpness.save_subdir = 'resonance_sharpness'
+# PLOT - SPECIFIC - save name for the overview plot
+plot.overview.save_name = 'overview_plot'
+# PLOT - SPECIFIC - save subdir for the overview plot (relative to the save dir)
+plot.overview.save_subdir = 'overview'
+
+
+# Table that holds information folder values
+[information_folders]
+# MESA information:
+# NOTE: use a trailing '\' to remove newline characters '\n' when parsing!
+# MESA - base folder/dir
+MESA.default.base_dir = """
+/STER/jordanv/aegrid/MESA/output/\
+"""
+# MESA - default output dir
+MESA.default.output_dir = """
+/STER/jordanv/aegrid/MESA/output/\
+mesa_models_OP_pedersen/profiles\
+"""
+# MESA - selection substrings
+MESA.selection.substrings = ['Xc0.09', 'M8.00', 'D2.00']
+MESA.selection.substrings_to_tuple = true
+# MESA - selection suffix
+MESA.selection.suffix = 'dat'
+# GYRE information:
+# GYRE - base folder/dir
+GYRE.default.base_dir = """
+/STER/jordanv/aegrid/GYRE/work/\
+"""
+# GYRE - default output dir
+GYRE.default.output_dir = '/STER/jordanv/aegrid/GYRE/work/gyre_models_OP_pedersen/rot_20/Xc0.09/'
+# GYRE - selection detail substrings
+GYRE.selection.detail_substrings = ['detail', 'M8.00', 'D2.00']
+GYRE.selection.detail_substrings_to_tuple = true
+# GYRE - selection summary substring
+GYRE.selection.summary_substring = 'summary'
+# POLY - structure - base dir
+POLY.structure.default.base_dir = """
+/STER/jordanv/polytropegrid/structure_models/\
+"""
+# POLY - structure - default output dir
+POLY.structure.default.output_dir = """
+/STER/jordanv/polytropegrid/structure_models/n_3_0/\
+"""
+# POLY - structure - selection substrings
+POLY.structure.selection.substrings = ['poly', 'simple', 'n_3_0']
+POLY.structure.selection.substrings_to_tuple = true
+# POLY - structure - selection suffix
+POLY.structure.selection.suffix = 'h5'
+# POLY - modes - base dir
+POLY.modes.default.base_dir = """
+/STER/jordanv/polytropegrid/oscillation_models/\
+"""
+# POLY - modes - default output dir
+POLY.modes.default.output_dir = """
+/STER/jordanv/polytropegrid/oscillation_models/n_3_0/\
+"""
+# POLY - modes - selection detail substrings
+POLY.modes.selection.detail_substrings = ['detail', 'n_3_0']
+POLY.modes.selection.detail_substrings_to_tuple = true
+# POLY - modes - selection summary substring
+POLY.modes.selection.summary_substring = 'summary'
+
+
+# Table that holds (GYRE) file selection arguments
+[GYRE_selection]
+# path to base dir
+gyre_dir_path = """
+/STER/jordanv/aegrid/GYRE/work/gyre_models_OP_pedersen/\
+"""
+# set the specifier path to the adiabatic and nonadiabatic output profiles
+# specifier - adiabatic
+specifier.adiabatic = 'rot_20/Xc0.09/ad'
+# specifier - nonadiabatic
+specifier.nonadiabatic = 'rot_20/Xc0.09/nad'
+# alternative - directory path
+# NOTE: empty --> None
+alternative.directory_path = {}
+# alternative - file name
+alternative.file_name = {}
+
+
+# Table that holds information on (polytropic) file selection arguments
+[POLY_selection]
+# path to base dir for polytrope mode models
+mode_path = """
+/STER/jordanv/polytropegrid/oscillation_models/\
+"""
+# set the specifier path to the mode output profiles (ADIABATIC)
+specifier.modes = 'n_3_0'
+# alternative - directory path
+# NOTE: empty --> None
+alternative.directory_path = {}
+# alternative - file name
+alternative.file_name = {}
+
+
+# Table that holds information on (polytropic) model arguments
+[POLY_model]
+# polytrope mass
+mass = 3.0
+# polytrope radius
+radius = 4.5
+
+
+# Table that holds rotation arguments
+[rotation]
+# select (uniform) rotation rate expressed in percentage
+# of the Roche critical rotation rate for the GYRE output
+# files under consideration (INTEGER)
+rot_percent = 20
+# enable the use of a rotating formalism (BOOLEAN)
+rotating_formalism = true
+
+
+# Table that holds information on the modes
+[mode_info]
+# GRID COMPUTATIONS
+# parent mode radial order (n) boundaries
+parent.n.high = 52 #28  #70
+parent.n.low = 51  #25  #68
+# daughter mode 1 radial order (n) boundaries
+daughter_1.n.high = 38 #35  #38
+daughter_1.n.low = 37   #30  #36
+# daughter mode 2 radial order (n) boundaries
+daughter_2.n.high = 90 #35  #38
+daughter_2.n.low = 89   #30  #36
+# parent mode spherical degree (l) and azimuthal order (m)
+parent.l = 2
+parent.m = 2
+# daughter mode 1 spherical degree (l) and azimuthal order (m)
+daughter_1.l = 1
+daughter_1.m = 1
+# daughter mode 2 spherical degree (l) and azimuthal order (m)
+daughter_2.l = 1
+daughter_2.m = 1
+# COUPLING COEFFICIENT PROFILE
+# radial order of parent
+coupling.parent.n = 38
+# radial orders of daughters
+coupling.daughter_1.n = 28
+coupling.daughter_2.n = 67
+
+
+# Table that hold information on CC computation arguments
+[coupling_coefficient]
+# use symbolic/analytic profiles
+symbolic_profiles = true
+# use brunt definition for profile
+brunt_def_profiles = true
+# use complex numbers
+use_complex = false
+# adiabatic computations in addition to nonadiabatic
+adiabatic = true
+# determine which of the terms in the coupling coefficient
+# are complex conjugated
+terms_cc_conj = [true, false, false]
+# flag to compute couplings for polytropes (if False, expect MESA+GYRE models)
+compute_for_polytrope = false
+# flag used to compute couplings using analytic
+# expressions for the polytropic model structure quantities
+analytic_polytrope = false
+
+
+# Table that holds the plotting arguments
+[plotting]
+# load - nr of files
+load.nr_files = 7#7
+# load - base directory
+load.base_dir = '/STER/jordanv/aesolver_dec2023/amplitude_equations_solver'
+# load - output directory
+load.output_dir = 'hdf5_output'
+# load - less information / custom name
+load.use_custom_name = true
+# load - base name of load files
+load.base_file_names = [['model_1_1_jvb_2023', 'model_1_2_jvb_2023', 'model_1_3_jvb_2023'], ['model_2_1_jvb_2023', 'model_2_2_jvb_2023', 'model_2_3_jvb_2023'], ['model_3_1_jvb_2023', 'model_3_2_jvb_2023', 'model_3_3_jvb_2023'], 'model_4_jvb_2023', ['model_5_1_jvb_2023', 'model_5_2_jvb_2023', 'model_5_3_jvb_2023'], 'model_6_jvb_2023', 'model_7_jvb_2023']
+# load - specification names (customizable part of name)
+load.specification_names = [['', '', ''],['', '', ''],['', '', ''], '', ['', '', ''], '', '']
+# load.specification_names = [ 'OP_pedersen', 'OP_pedersen', 'OP_pedersen' ]
+# load - mass(es) of stars considered (in solar masses)
+load.masses = [4, 4, 4, 4, 6, 6, 8]
+# load - evolutionary stage(s) of stars considered (Xc values)
+load.Xcs = [0.09, 0.29, 0.59, 0.59, 0.09, 0.29, 0.09]
+# load - bound triple pairs of daughters and parents (values of radial orders); only used in STANDARD FORMAT
+load.triple_pairs = [
+    [[[20,10,],[10,3,],[10,3,],],
+    [[20,10,],[47,17,],[10,3,],],
+    [[20,10,],[47,17,],[47,17,],],],
+    ]
+# load - meridional degree values of daughters and parents
+load.meridional_degrees = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+# load - azimuthal order values of daughters and parents
+load.azimuthal_orders = [[2, 1, 1], [2, 1, 1], [2, 1, 1], [2, 1, 1], [2, 1, 1], [2, 1, 1], [2, 1, 1]]
+# load - file suffix
+load.file_suffix = [['h5', 'h5', 'h5'],['h5', 'h5', 'h5'],['h5', 'h5', 'h5'],'h5',['h5', 'h5', 'h5'],'h5','h5']
+# plot - show plots
+plot.show = true
+# plot - make overview plot
+plot.overview = true
+# plot - make coefficient profile plot
+plot.coefficient_profile = false
+# plot - make resonance sharpness plot
+plot.resonance_sharpness = false
+# figure - size (Matplotlib standard = [6.4, 4.8])
+figure.size = [6.4, 4.8]
+# figure - dpi
+figure.dpi = 300
+# labels - axis label size
+labels.ax_label.size = 12
+# labels - tick label size
+labels.tick_label.size = 10
+# labels - tick label padding
+labels.tick_label.pad = 7
+# ticks - tick size
+ticks.size = 8
+# colors - matplotlib color map name
+colors.matplotlib_color_map = 'cividis_r'
+# misc - plot cyclic frequencies
+misc.plot_cyclic_fs = true
+# misc - nonsensible mode triad selection method
+misc.rad_nr = 2
+# coupling coefficient profile - show kernels
+profile.show_kernels = true
+# coupling coefficient profile - show term by term contributions
+profile.show_term_by_term = true
+
+
+# Table that holds analysis elements
+[analysis]
+# analyze the different model validity and stability criteria, showing how many of the computed mode triads fulfill these criteria, if true
+numbers_categories = true
+# analyze how many of the computed couplings have daughters whose saturation amplitude are larger than the parent saturation amplitudes, and check how many of those triads fulfill q > Q1, if true
+q_Q1_condition = true
+# analyze and show all isolated mode properties, if true
+isolated_mode_properties = true
+# analyze and show all isolated stability/validity estimators, if true
+isolated_stability_validity_estimators = true
+# analyze and show all isolated triad observables, if true
+isolated_triad_observables = true
