@@ -3,7 +3,7 @@
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
 # version + author
-__version__ = '0.2.1'
+__version__ = '1.0.0'
 __author__ = 'Jordan Van Beeck'
 
 
