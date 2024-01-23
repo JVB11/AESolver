@@ -13,6 +13,8 @@ Detailed information on the available private and publicly available functions i
 1.[API reference of inlist_handler](inlist_handler.html)
 2.[API reference of toml_inlist_handler](toml_inlist_handler.html)
 
+In this index, the publicly available (class) methods of these classes/objects are shown (with a short description of their functionality).
+
 ## Sub-modules
 
 * inlist_handler.inlist_handler
@@ -25,7 +27,7 @@ Detailed information on the available private and publicly available functions i
 
     ### Static methods
 
-    `get_inlist_values(inlist_path)`
+    `get_inlist_values(inlist_path: str) -> dict`
     :   Utility method that retrieves the default inlist values, and updates them, if necessary.
 
 `TomlInlistHandler()`
@@ -33,5 +35,5 @@ Detailed information on the available private and publicly available functions i
 
     ### Static methods
 
-    `get_inlist_values(inlist_path)`
+    `get_inlist_values(inlist_path: str) -> dict`
     :   Utility method that retrieves the inlist values, as parsed from the toml inlist file.
