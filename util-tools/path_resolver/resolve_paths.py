@@ -14,7 +14,7 @@ def _get_abspath_to_run(sys_arguments: list) -> str:
     Parameters
     ----------
     sys_arguments : list
-        System arguments.
+        System arguments list.
 
     Returns
     -------

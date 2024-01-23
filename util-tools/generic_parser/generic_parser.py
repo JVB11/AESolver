@@ -42,7 +42,7 @@ class GenericParser:
         Initialization mode 2: The base directory in which the inlists directory can be found, by default None (i.e. opting to perform actions in this class using initialization option 1).
     inlist_name : str | None, optional
         Initialization mode 2: The name of the inlist file, by default None (i.e. opting to perform actions in this class using initialization option 1).
-    inlist_dir : str or None, optional
+    inlist_dir : str | None, optional
         Initialization mode 2: The name of the inlists directory in the base directory. If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
     inlist_suffix : str, optional
         Initialization mode 2: The suffix of the inlist file (only used for initialization mode 2), by default 'in'.
@@ -112,7 +112,29 @@ class GenericParser:
         inlist_name: str | None = None,
         inlist_dir: str | None = None,
         inlist_suffix: str = 'in',
-    ):
+    ) -> None:
+        """Initialization method used to store the relevant path information in this generic parser object.
+
+        Parameters
+        ----------
+        base_directory_name : str
+            Name of the base directory (of your github repo in which this parser is used, for example).
+        full_inlist_path : Path | None, optional
+            Full Path (object) to the inlist file or None; by default None.
+        base_dir : str | None, optional
+            The base directory in which the inlists directory can be found; by default None.
+        inlist_name : str | None, optional
+            The name of the inlist file; by default None.
+        inlist_dir : str | None, optional
+            The name of the inlists directory in the base directory; by default None. If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
+        inlist_suffix : str, optional
+            The suffix of the inlist file; by default 'in'.
+
+        Raises
+        ------
+        ExceptionGroup
+            _description_
+        """
         # store exception list
         _exception_list = []
         # verify if either of the two initialization modes succeed
@@ -153,6 +175,22 @@ class GenericParser:
         base_directory_name: str,
         my_exceptions: list[Exception],
     ) -> bool:
+        """Initialization method 1 for this generic parser class. This analyzes a passed Path, in order to retrieve/extract necessary information based on this path.
+
+        Parameters
+        ----------
+        full_inlist_path : Path | None
+            Full Path (object) to the inlist file, or None.
+        base_directory_name : str
+            Name of the base directory (of your github repo in which this parser is used, for example).
+        my_exceptions : list[Exception]
+            List that stores any exceptions encountered during the initialization processes.
+
+        Returns
+        -------
+        bool
+            True if this initialization method succeeded, False otherwise.
+        """
         # analyze the passed Path
         # - store common part of error message
         _common_error = f'cannot be inferred from the full inlist path {full_inlist_path} (which is likely not a Path (but needs to be in order to succeed)).'
@@ -230,6 +268,26 @@ class GenericParser:
         inlist_suffix: str,
         my_exceptions: list[Exception],
     ) -> bool:
+        """Initialization method 2 for this generic parser class. This method uses passed information to initialize the object.
+
+        Parameters
+        ----------
+        base_dir : str | None
+            The base directory in which the inlists directory can be found, or None.
+        inlist_name : str | None
+            Name of the inlist file (without suffix and path information).
+        inlist_dir : str | None
+            Name of the directory containing the inlist file (i.e., string representation of the path to this directory).
+        inlist_suffix : str
+            Suffix of the inlist file.
+        my_exceptions : list[Exception]
+            List that stores any exceptions encountered during the initialization processes.
+
+        Returns
+        -------
+        bool
+            True if this initialization method succeeded, False otherwise.
+        """
         # check if the necessary information is available (and of the right type!)
         ok1 = self._check_if_string(
             variable_description='base directory',
@@ -453,7 +511,7 @@ class GenericParser:
 
         Parameters
         ----------
-        argument_list : list[str] or list[tuple]
+        argument_list : list[str] | list[tuple]
             List containing arguments that represent the names of the arguments read in the inlist or argumentparser. Optional second (tuple) value is a boolean that inverses a boolean value if True.
 
         Returns
@@ -488,7 +546,7 @@ class GenericParser:
 
         Returns
         -------
-        int or str or float or list
+        int | str | float | list
             Requested value.
         """
         try:

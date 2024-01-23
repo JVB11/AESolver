@@ -10,6 +10,11 @@ import shlex
 import sys
 from functools import partialmethod
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from typing import Any
+
 
 # set up logger
 logger = logging.getLogger(__name__)
@@ -109,7 +114,7 @@ class InlistHandler:
 
         Returns
         -------
-        typed_value : type-dependent
+        typed_value : Any
             The value_string converted to the appropriate type.
         """
         # check for common symbols that indicate the presence of string input
@@ -166,7 +171,7 @@ class InlistHandler:
         ----------
         inlist_path: str
             Name of the inlist used for the iterative prewhitening run.
-        dictionary_inlist: dict or None, optional
+        dictionary_inlist: dict | None, optional
             Will contain (updated) key-value pairs of the values specified in the inlist. If None, no key-value pairs are specified; by default None.
 
         Returns
