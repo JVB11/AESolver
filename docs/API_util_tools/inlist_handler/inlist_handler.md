@@ -64,7 +64,7 @@ API reference for Python module that defines the class needed to parse custom-fo
     
     `_get_default_inlist_values(cls, inlist_path: str) -> dict`
     :   Class method that obtains the default values obtained from the inlist: 'xxxx.defaults'.
-        ~~~Python
+        ~~~
         Parameters
         ----------
         inlist_path: str
@@ -73,7 +73,7 @@ API reference for Python module that defines the class needed to parse custom-fo
         Raises
         ------
         NameError
-            If no filepath was obtained that matches the compiled regular expression conventional naming.
+            Raised when no filepath was obtained that matches the compiled regular expression conventional naming.
 
         Returns
         -------
@@ -83,7 +83,7 @@ API reference for Python module that defines the class needed to parse custom-fo
     
     `_parse_inlist(cls, inlist_path: str, dictionary_inlist: dict | None=None) -> dict`
     :   Internal utility method that parses a user inlist and obtains the values of the input parameters.
-
+        ~~~
         Parameters
         ----------
         inlist_path: str
@@ -95,10 +95,11 @@ API reference for Python module that defines the class needed to parse custom-fo
         -------
         dictionary_inlist: dict
             Contains the (updated) key-value pairs of the values specified in the inlist.
+        ~~~
 
     `_typer(cls, value_string: str) -> typing.Any`
     :   Internal utility method used to define infer types from the input in the inlists.
-
+        ~~~
         Parameters
         ----------
         value_string : str
@@ -108,12 +109,13 @@ API reference for Python module that defines the class needed to parse custom-fo
         -------
         typed_value : Any
             The value_string converted to the appropriate type.
+        ~~~
 
     ### Private static methods
 
     `_multi_check_method(value_string: str, check_values: list[str], any_check: bool=False, all_check: bool=False) -> bool`
     :   Internal utility method used to check a condition / multiple conditions for the typing.
-
+        ~~~
         Parameters
         ----------
         value_string: str
@@ -129,5 +131,6 @@ API reference for Python module that defines the class needed to parse custom-fo
         -------
         bool
             The outcome of the check for the typing.
+        ~~~
 
 {% include button_back.html %}

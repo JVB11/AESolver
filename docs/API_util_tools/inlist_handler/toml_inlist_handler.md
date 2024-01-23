@@ -19,7 +19,7 @@ API reference for Python module that defines the class needed to parse toml-form
 
     `get_inlist_values(cls, inlist_path: str) -> dict`
     :   Utility method that retrieves the inlist values, as parsed from the toml inlist file.
-        
+        ~~~        
         Parameters
         ----------
         inlist_path : str
@@ -29,12 +29,13 @@ API reference for Python module that defines the class needed to parse toml-form
         -------
         toml_input_data : dict
             Contains the key-value pairs of the input parameters specified in the inlist.
+        ~~~
 
     ### Private class methods
     
     `_parse_toml_inlist(cls, inlist: str) -> dict`
     :   Utility method that parses the toml-format inlist.
-
+        ~~~
         Parameters
         ----------
         inlist_path : str
@@ -44,13 +45,15 @@ API reference for Python module that defines the class needed to parse toml-form
         -------
         parsed_dictionary : dict
             Contains the parsed key-value pairs.
+        ~~~
     
     `_adjust_for_none(cls, parsed_dict: dict) -> None`
     :   Adjust parsed dictionary values for None-value input.
-
+        ~~~
         Parameters
         ----------
         parsed_dict : dict
             Contains the parsed dictionary keys and values.
+        ~~~
 
 {% include button_back.html %}

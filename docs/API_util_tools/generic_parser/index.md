@@ -27,7 +27,7 @@ In this index, the publicly available methods and properties of the parser class
 
     ### Methods
 
-    `get_ha(self, ha_dict, index_val)`
+    `get_ha(self, ha_dict: dict, index_val: list[str]) -> int | str | float | list`
     :   Hierarchical indexing utility method used to access (possibly nested) dictionary elements. 'ha_dict' is the possible nested dictionary containing input elements, and 'index_val' is the index list for the possible nested dictionary.
 
     `read_args(self)`
@@ -36,10 +36,10 @@ In this index, the publicly available methods and properties of the parser class
     `read_custom_args(self)`
     :   Method used to read relevant arguments based on the information parsed from a custom inlist file.
 
-    `read_in_to_list(self, argument_list)`
+    `read_in_to_list(self, argument_list: list[str] | list[tuple]) -> list`
     :   Generic method used to read a list of arguments into a list. 'argument_list' is the list containing arguments that represent the names of arguments to be read in the inlist file or argumentparser.
 
-    `read_in_to_dict(self, tuple_list)`
+    `read_in_to_dict(self, tuple_list: list[tuple]) -> dict`
     :   Generic method used to read list of tuples of arguments into a dictionary. 'tuple_list' is the list containing tuples that represent elements of the dictionary (see API for more detailed description of the tuples in this list). 
 
     `read_toml_args(self)`
