@@ -18,7 +18,7 @@ class TomlInlistHandler:
 
     # define the method that parses the toml-format inlist
     @classmethod
-    def _parse_toml_inlist(cls, inlist_path):
+    def _parse_toml_inlist(cls, inlist_path: str) -> dict:
         """Utility method that parses the toml-format inlist.
 
         Parameters
@@ -39,7 +39,7 @@ class TomlInlistHandler:
 
     # adjust for None values
     @classmethod
-    def _adjust_for_none(cls, parsed_dict):
+    def _adjust_for_none(cls, parsed_dict: dict) -> None:
         """Adjust parsed dictionary values for None-value input.
 
         Parameters
@@ -57,7 +57,7 @@ class TomlInlistHandler:
 
     # define the main method that retrieves the inlist input
     @classmethod
-    def get_inlist_values(cls, inlist_path):
+    def get_inlist_values(cls, inlist_path: str) -> dict:
         """Utility method that retrieves the inlist values, as parsed from the toml inlist file.
 
         Parameters

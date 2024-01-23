@@ -21,31 +21,31 @@ logger = logging.getLogger(__name__)
 
 # class containing generic arguments and methods used for parsing
 class GenericParser:
-    """(Super)Class containing generic methods and arguments used for parsing of input. Input can either be read from the command-line argument parser, or from inlist files.
+    """(Super)Class containing generic methods and arguments used for the parsing of input. Input can either be read from the command-line argument parser, or from inlist files.
 
     Notes
     -----
-    This class can be initialized in two different ways:
+    This class/object can be initialized in two different ways:
 
-    1. Either you provide the full (pathlib) Path to the file that you want to parse from, or,
+    1. Either you provide the full (pathlib) Path to the inlist file that you want to parse from, or,
     2. you provide the strings representing the base directory, inlist name, inlist directory, and inlist suffix.
 
-    If you do not provide the necessary information for one of these initialization methods, the initialization will fail with an ExceptionGroup that denotes the failures in understanding the user input.
+    If you do not provide the necessary information for one of these initialization methods, the initialization will fail with an ExceptionGroup that denotes the class'/object's failures in understanding the user input.
 
     Parameters
     ----------
     base_directory_name : str
         Name of the base directory (of your github repo in which this parser is used, for example).
     full_inlist_path : Path | None, optional
-        Initialization mode 1: full (pathlib) Path to the file you want to parse from, by default None (i.e. opting to perform actions in this class using initialization option 2).
+        Initialization mode 1: full (pathlib) Path to the inlist file that you want to parse; by default None (i.e. opting to perform actions in this class using initialization option 2).
     base_dir : str | None, optional
-        Initialization mode 2: The base directory in which the inlists directory can be found, by default None (i.e. opting to perform actions in this class using initialization option 1).
+        Initialization mode 2: The base directory in which the inlists directory can be found; by default None (i.e. opting to perform actions in this class using initialization option 1).
     inlist_name : str | None, optional
-        Initialization mode 2: The name of the inlist file, by default None (i.e. opting to perform actions in this class using initialization option 1).
+        Initialization mode 2: The name of the inlist file; by default None (i.e. opting to perform actions in this class using initialization option 1).
     inlist_dir : str | None, optional
         Initialization mode 2: The name of the inlists directory in the base directory. If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
     inlist_suffix : str, optional
-        Initialization mode 2: The suffix of the inlist file (only used for initialization mode 2), by default 'in'.
+        Initialization mode 2: The suffix of the inlist file (only used for initialization mode 2); by default 'in'.
     """
 
     # attribute type declarations
@@ -94,7 +94,7 @@ class GenericParser:
 
     @property
     def inlist_path(self):
-        """Returns the path to the used/selected inlist.
+        """Returns the string representation of the path to the used/selected inlist.
 
         Returns
         -------
@@ -133,7 +133,7 @@ class GenericParser:
         Raises
         ------
         ExceptionGroup
-            _description_
+            Any of the exceptions raised during the initialization methods will be stored in this exception group, which will be raised if none of the two initialization methods succeed.
         """
         # store exception list
         _exception_list = []
@@ -319,21 +319,21 @@ class GenericParser:
     def _check_if_string(
         variable_description: str, my_value: Any, my_exceptions: list[Exception]
     ) -> bool:
-        """Checks if the passed value is a string, and adds an exception to the list if it is not!
+        """Checks if the passed value is a string, and adds an exception to the stored exception list if it is not!
 
         Parameters
         ----------
         variable_description : str
             Describes the use of the variable.
         my_value : Any
-            The value that needs to be of string type (for this method to succeed/not add an exception).
+            The value that needs to be of string type (for this method to succeed/not add an exception to the list).
         my_exceptions : list[Exception]
-            Keeps track of the raised exception during mode initialization.
+            Keeps track of the raised exceptions during initialization.
 
         Returns
         -------
         bool
-            True if a string, False otherwise.
+            True if the input value ('my_value') was a string, False otherwise.
         """
         if not isinstance(my_value, str):
             my_exceptions.append(
@@ -347,7 +347,7 @@ class GenericParser:
             return True
 
     # add generic groups and arguments
-    def _set_up_generic_argparser(self):
+    def _set_up_generic_argparser(self) -> None:
         """Method used to set up GENERIC argument parser groups and arguments.
 
         Notes
@@ -413,19 +413,19 @@ class GenericParser:
 
     # check if file or directory exists, raise error if not
     def _exists(self, my_path, is_file=True):
-        """Generic method used to check if file exists.
+        """Generic method used to check if a file exists.
 
         Parameters
         ----------
         my_path : str
-            The path to the file or directory.
+            The (string representation of the) path to the file or directory.
         is_file : bool, optional
             If True, check a path to a file. If False, check a path to directory; by default True.
 
         Returns
         -------
         my_path : str
-            The valid path. Will not be returned if path is not valid; in that case a TypeError shall be raised.
+            The valid path. Will not be returned if the path is not valid; in that case a TypeError shall be raised.
         """
         # generate the path object
         _my_path_object = Path(my_path)
@@ -440,8 +440,8 @@ class GenericParser:
             raise TypeError
 
     # prepare to read arguments: read inlist if necessary
-    def _prepare_read_args(self):
-        """Internal method used to prepare to read arguments: reads the inlist if necessary, and otherwise generates the data dictionary from command-line arguments."""
+    def _prepare_read_args(self) -> None:
+        """Internal method used to prepare to read arguments: reads the inlist if necessary, and otherwise generates the data dictionary from passed command-line arguments."""
         # using command-line arguments
         if self._args.no_inlist:
             self._data_read_dictionary = vars(self._args)
@@ -469,17 +469,17 @@ class GenericParser:
                 )
 
     # generic method used to read list of tuples of arguments into dictionary
-    def read_in_to_dict(self, tuple_list):
-        """Generic method used to read list of tuples of arguments in to a dictionary.
+    def read_in_to_dict(self, tuple_list: list[tuple]) -> dict:
+        """Generic method used to read list of tuples of arguments into a dictionary.
 
         Notes
         -----
-        If a(n optional) third value is supplied in the tuple list, it should be provided for all input arguments. Use False for the negating bool variable (optional third entry) for non-boolean input!
+        If a(n optional) third value is supplied in the tuple list, it should be provided for all input arguments. Use False for the negating bool variable (optional third entry) when entering non-boolean input!
 
         Parameters
         ----------
         tuple_list : list[tuple]
-            List containing tuples that represent elements of the dictionary: first element is the dictionary key. The second element is the dictionary value. The optional third element is a boolean that inverses a boolean dictionary value if True.
+            List containing tuples that represent elements of the dictionary: first element is the dictionary key. The second element is the dictionary value. The optional third element is a boolean that inverts a boolean dictionary value if True. It should be set to False (when specified) for non-boolean dictionary values.
 
         Returns
         -------
@@ -503,11 +503,11 @@ class GenericParser:
 
     # generic method used to read list of arguments into list
     def read_in_to_list(self, argument_list):
-        """Generic method used to read list of arguments in to a list.
+        """Generic method used to read list of arguments into a list.
 
         Notes
         -----
-        If a(n optional) second value is supplied in the argument (tuple) list, it should be provided for all input arguments. Use False for the negating bool variable (optional second entry) for non-boolean input!
+        If a(n optional) second value is supplied in the argument (tuple) list, it should be provided for all input arguments. Use False for the negating bool variable (optional second entry) when entering non-boolean input!
 
         Parameters
         ----------
@@ -534,7 +534,7 @@ class GenericParser:
             ]
 
     # access elements in (possibly nested) dicts
-    def get_ha(self, ha_dict, index_val):
+    def get_ha(self, ha_dict: dict, index_val: list[str]) -> int | str | float | list:
         """Hierarchical indexing utility method used to access (possibly nested) dictionary elements.
 
         Parameters
@@ -566,7 +566,7 @@ class GenericParser:
 
     # generic method used to read input arguments
     def read_args(self):
-        """Generic method used to read relevant arguments from the parsed information."""
+        """Generic method used to read relevant arguments from the parsed information. The output of this method is dependent on the overloading of the read_toml_args or read_custom_args methods."""
         # read action selected based on inlist suffix
         if self._inlist_suffix == 'toml':
             return self.read_toml_args()
@@ -574,7 +574,7 @@ class GenericParser:
             return self.read_custom_args()
 
     # add argument parser groups and arguments
-    def _set_up_specific_argparser(self):
+    def _set_up_specific_argparser(self) -> None:
         """Method used to set up the SPECIFIC argument parser groups and arguments.
 
         Notes
@@ -585,7 +585,7 @@ class GenericParser:
 
     # read custom inlist input arguments
     def read_custom_args(self):
-        """Method used to read relevant arguments from the information parsed from a custom inlist.
+        """Method used to read relevant arguments based on the information parsed from a custom inlist file.
 
         Notes
         -----

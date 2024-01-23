@@ -7,18 +7,18 @@ import logging
 
 
 # set up the root logger
-def set_up_root_logger(my_level=logging.INFO):
+def set_up_root_logger(my_level: int=logging.INFO) -> logging.RootLogger:
     """Function that sets up the root logger.
 
     Parameters
     ----------
     my_level : int, optional
-        The level of the root logger. Default: logging.INFO
+        The level of the root logger; by default: logging.INFO.
 
     Returns
     -------
     logging.RootLogger
-        The rootlogger object.
+        The root logger object.
     """
     # adjust the configuration for the root logger
     logging.basicConfig(
@@ -34,7 +34,7 @@ def set_up_root_logger(my_level=logging.INFO):
 # adjust the root logger level
 def adjust_root_logger_level(
     my_root_logger: logging.RootLogger, logger_info_dict: dict
-):
+) -> logging.RootLogger:
     """Function used to adjust the root logger level based on specific arguments in the logger information dictionary.
 
     Parameters
@@ -47,7 +47,7 @@ def adjust_root_logger_level(
     Returns
     -------
     my_root_logger : logging.RootLogger
-        The rootlogger object.
+        The root logger object.
     """
     # get the level of logger
     my_level = my_root_logger.getEffectiveLevel()

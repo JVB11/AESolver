@@ -30,7 +30,7 @@ def resolve_path_to_file(
     default_path: str,
     default_run_path: str = '..',
 ) -> Path:
-    """Resolves the path to a file with known default relative path from the base directory.
+    """Resolves the path to a file with a known default relative path from the base directory.
 
     Notes
     -----
@@ -45,7 +45,7 @@ def resolve_path_to_file(
     default_path : str
         The default relative path to the base directory, which is used to ultimately resolve the path from the current work directory.
     default_run_path : str, optional
-        Conversion from the run directory to the base directory.
+        Conversion from the run directory to the base directory; by default '..'.
 
     Returns
     -------
@@ -55,7 +55,7 @@ def resolve_path_to_file(
     Raises
     ------
     FileNotFoundError
-        When the corresponding file cannot be found in the programmatic paths. This is likely due to mis-specification of the 'default_path'!
+        Raised when the corresponding file cannot be found in the programmatic paths. This is likely due to mis-specification of the 'default_path'!
     """
     # check if the default path exists
     if (my_default_path := Path(f'{default_path}/{file_name}')).exists():
