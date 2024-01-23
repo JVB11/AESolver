@@ -48,7 +48,7 @@ API reference for Python module that defines the class needed to parse custom-fo
 
     `get_inlist_values(inlist_path: str) -> dict`
     :   Utility method that retrieves the default inlist values, and updates them, if necessary.
-        
+        ```
         Parameters
         ----------
         inlist_path: str
@@ -58,6 +58,7 @@ API reference for Python module that defines the class needed to parse custom-fo
         -------
         dictionary_inlist: dict
             Contains the key-value pairs of the input parameters specified in the inlist.
+        ```
 
     ### Private class methods
     
