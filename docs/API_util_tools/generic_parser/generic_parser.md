@@ -20,7 +20,8 @@ Python module containing (super)class that handles generic parsing of arguments,
     This class/object can be initialized in two different ways:
 
     1. Either you provide the full (pathlib) Path to the inlist file that you want to parse from, or,
-    2. you provide the strings representing the base directory, inlist name, inlist directory, and inlist suffix.
+    2. you provide the strings representing the base directory, inlist name, inlist directory,
+       and inlist suffix.
 
     If you do not provide the necessary information for one of these initialization methods,
     the initialization will fail with an ExceptionGroup that denotes the class'/object's failures in 
@@ -93,17 +94,17 @@ Python module containing (super)class that handles generic parsing of arguments,
         ~~~        
         Notes
         -----
-        If a(n optional) third value is supplied in the tuple list, it should be provided for all input 
-        arguments. Use False for the negating bool variable (optional third entry) when entering
-        non-boolean input!
+        If a(n optional) third value is supplied in the tuple list, it should be provided
+        for all input arguments. Use False for the negating bool variable
+        (optional third entry) when entering non-boolean input!
         
         Parameters
         ----------
         tuple_list : list[tuple]
-            List containing tuples that represent elements of the dictionary: the first element is the 
-            dictionary key. The second element is the dictionary value. The optional third element is
-            a boolean that inverts a boolean dictionary value if True. It should be set to False
-            (when specified) for non-boolean dictionary values.
+            List containing tuples that represent elements of the dictionary:
+            the first element is the dictionary key. The second element is the dictionary value.
+            The optional third element is a boolean that inverts a boolean dictionary value,
+            if True. It should be set to False for non-boolean dictionary values when specified.
         
         Returns
         -------
@@ -116,15 +117,16 @@ Python module containing (super)class that handles generic parsing of arguments,
         ~~~        
         Notes
         -----
-        If a(n optional) second value is supplied in the argument (tuple) list, it should be provided for all 
-        input arguments. Use False for the negating bool variable (optional second entry) when entering 
-        non-boolean input!
+        If a(n optional) second value is supplied in the argument (tuple) list,
+        it should be provided for all input arguments. Use False for the
+        negating bool variable (optional second entry) when entering non-boolean input!
         
         Parameters
         ----------
         argument_list : list[str] | list[tuple]
-            List containing arguments that represent the names of the arguments read in the inlist or 
-            argumentparser. Optional second (tuple) value is a boolean that inverses a boolean value if True.
+            List containing arguments that represent the names of the arguments read in
+            the inlist or argumentparser. Optional second (tuple) value is a boolean that
+            inverses a boolean value if True.
         
         Returns
         -------
@@ -186,8 +188,8 @@ Python module containing (super)class that handles generic parsing of arguments,
         variable_description : str
             Describes the use of the variable.
         my_value : typing.Any
-            The value that needs to be of string type (for this method to succeed/not add an exception
-            to the list).
+            The value that needs to be of string type (for this method to succeed/not
+            add an exception to the list).
         my_exceptions: list[Exception]
             Keeps track of the raised exceptions during initialization.
 
@@ -207,8 +209,8 @@ Python module containing (super)class that handles generic parsing of arguments,
         inlist_name : str | None
             Name of the inlist file (without suffix and path information).
         inlist_dir : str | None
-            Name of the directory containing the inlist file (i.e., string representation of the path
-            to this directory).
+            Name of the directory containing the inlist file (i.e., string representation
+            of the path to this directory).
         inlist_suffix : str
             Suffix of the inlist file.
         my_exceptions : list[Exception]
@@ -228,7 +230,8 @@ Python module containing (super)class that handles generic parsing of arguments,
         full_inlist_path : pathlib.Path | None
             Full Path (object) to the inlist file, or None.
         base_directory_name : str
-            Name of the base directory (of your github repo in which this parser is used, for example).
+            Name of the base directory (of your github repo in which this parser is used,
+            for example).
         my_exceptions : list[Exception]
             List that stores any exceptions encountered during the initialization processes.
         
@@ -244,7 +247,8 @@ Python module containing (super)class that handles generic parsing of arguments,
         Parameters
         ----------
         base_directory_name : str
-            Name of the base directory (of your github repo in which this parser is used, for example).
+            Name of the base directory (of your github repo in which this parser is used,
+            for example).
         full_inlist_path : Path | None, optional
             Full Path (object) to the inlist file or None; by default None.
         base_dir : str | None, optional
@@ -262,7 +266,8 @@ Python module containing (super)class that handles generic parsing of arguments,
         ------
         ExceptionGroup
             Any of the exceptions raised during the initialization methods will be stored in
-            this exception group, which will be raised if none of the two initialization methods succeed.
+            this exception group, which will be raised if none of the two initialization methods
+            succeed.
         ~~~
 
 {% include button_back.html %}
