@@ -64,7 +64,7 @@ API reference for Python module that defines the class needed to parse custom-fo
     
     `_get_default_inlist_values(cls, inlist_path: str) -> dict`
     :   Class method that obtains the default values obtained from the inlist: 'xxxx.defaults'.
-
+        ~~~Python
         Parameters
         ----------
         inlist_path: str
@@ -79,6 +79,7 @@ API reference for Python module that defines the class needed to parse custom-fo
         -------
         dict
             Contains the key-value pairs of the values specified in the inlist containing the defaults.
+        ~~~
     
     `_parse_inlist(cls, inlist_path: str, dictionary_inlist: dict | None=None) -> dict`
     :   Internal utility method that parses a user inlist and obtains the values of the input parameters.
