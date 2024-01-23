@@ -26,7 +26,8 @@ Utility module containing functions used to resolve paths to files.
     file_name : str
         Name of the file for which you would like to obtain the resolved path.
     default_path : str
-        The default relative path to the base directory, which is used to ultimately resolve the path from the current work directory.
+        The default relative path to the base directory, which is used to ultimately resolve
+        the path from the current work directory.
     default_run_path : str, optional
         Conversion from the run directory to the base directory; by default '..'.
     
@@ -38,7 +39,8 @@ Utility module containing functions used to resolve paths to files.
     Raises
     ------
     FileNotFoundError
-        Raised when the corresponding file cannot be found in the programmatic paths. This is likely due to mis-specification of the 'default_path'!
+        Raised when the corresponding file cannot be found in the programmatic paths.
+        This is likely due to mis-specification of the 'default_path'!
     ~~~
 
 ## Private functions

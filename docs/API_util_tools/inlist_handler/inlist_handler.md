@@ -73,12 +73,14 @@ API reference for Python module that defines the class needed to parse custom-fo
         Raises
         ------
         NameError
-            Raised when no filepath was obtained that matches the compiled regular expression conventional naming.
+            Raised when no filepath was obtained that matches the compiled regular expression
+            conventional naming.
 
         Returns
         -------
         dict
-            Contains the key-value pairs of the values specified in the inlist containing the defaults.
+            Contains the key-value pairs of the values specified in the inlist containing
+            the defaults.
         ~~~
     
     `_parse_inlist(cls, inlist_path: str, dictionary_inlist: dict | None=None) -> dict`
@@ -89,7 +91,8 @@ API reference for Python module that defines the class needed to parse custom-fo
         inlist_path: str
             Name of the inlist used for a run.
         dictionary_inlist: dict | None, optional
-            Will contain (updated) key-value pairs of the values specified in the inlist. If None, no key-value pairs are specified; by default None.
+            Will contain (updated) key-value pairs of the values specified in the inlist.
+            If None, no key-value pairs are specified; by default None.
 
         Returns
         -------
