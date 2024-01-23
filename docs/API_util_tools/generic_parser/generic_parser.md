@@ -21,23 +21,31 @@ Python module containing (super)class that handles generic parsing of arguments,
 
     1. Either you provide the full (pathlib) Path to the inlist file that you want to parse from, or,
     2. you provide the strings representing the base directory, inlist name, inlist directory, and inlist suffix.
-    
-    If you do not provide the necessary information for one of these initialization methods, the initialization will fail with an ExceptionGroup that denotes the class'/object's failures in understanding the user input.
+
+    If you do not provide the necessary information for one of these initialization methods,
+    the initialization will fail with an ExceptionGroup that denotes the class'/object's failures in 
+    understanding the user input.
     
     Parameters
     ----------
     base_directory_name : str
         Name of the base directory (of your github repo in which this parser is used, for example).
     full_inlist_path : pathlib.Path | None, optional
-        Initialization mode 1: full (pathlib) Path to the inlist file that you want to parse; by default None (i.e. opting to perform actions in this class using initialization option 2).
+        Initialization mode 1: full (pathlib) Path to the inlist file that you want to parse;
+        by default None (i.e. opting to perform actions in this class using initialization option 2).
     base_dir : str | None, optional
-        Initialization mode 2: The base directory in which the inlists directory can be found; by default None (i.e. opting to perform actions in this class using initialization option 1).
+        Initialization mode 2: The base directory in which the inlists directory can be found;
+        by default None (i.e. opting to perform actions in this class using initialization option 1).
     inlist_name : str | None, optional
-        Initialization mode 2: The name of the inlist file; by default None (i.e. opting to perform actions in this class using initialization option 1).
+        Initialization mode 2: The name of the inlist file; by default None (i.e. opting to perform
+        actions in this class using initialization option 1).
     inlist_dir : str or None, optional
-        Initialization mode 2: The name of the inlists directory in the base directory. If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
+        Initialization mode 2: The name of the inlists directory in the base directory. If None, and 
+        initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks
+        for a directory named 'inlists/user_input/'; by default None.
     inlist_suffix : str, optional
-        Initialization mode 2: The suffix of the inlist file (only used for initialization mode 2); by default 'in'.
+        Initialization mode 2: The suffix of the inlist file (only used for initialization mode 2);
+        by default 'in'.
     ~~~
 
     ### Instance variables
@@ -85,12 +93,17 @@ Python module containing (super)class that handles generic parsing of arguments,
         ~~~        
         Notes
         -----
-        If a(n optional) third value is supplied in the tuple list, it should be provided for all input arguments. Use False for the negating bool variable (optional third entry) when entering non-boolean input!
+        If a(n optional) third value is supplied in the tuple list, it should be provided for all input 
+        arguments. Use False for the negating bool variable (optional third entry) when entering
+        non-boolean input!
         
         Parameters
         ----------
         tuple_list : list[tuple]
-            List containing tuples that represent elements of the dictionary: the first element is the dictionary key. The second element is the dictionary value. The optional third element is a boolean that inverts a boolean dictionary value if True. It should be set to False (when specified) for non-boolean dictionary values.
+            List containing tuples that represent elements of the dictionary: the first element is the 
+            dictionary key. The second element is the dictionary value. The optional third element is
+            a boolean that inverts a boolean dictionary value if True. It should be set to False
+            (when specified) for non-boolean dictionary values.
         
         Returns
         -------
@@ -103,12 +116,15 @@ Python module containing (super)class that handles generic parsing of arguments,
         ~~~        
         Notes
         -----
-        If a(n optional) second value is supplied in the argument (tuple) list, it should be provided for all input arguments. Use False for the negating bool variable (optional second entry) when entering non-boolean input!
+        If a(n optional) second value is supplied in the argument (tuple) list, it should be provided for all 
+        input arguments. Use False for the negating bool variable (optional second entry) when entering 
+        non-boolean input!
         
         Parameters
         ----------
         argument_list : list[str] | list[tuple]
-            List containing arguments that represent the names of the arguments read in the inlist or argumentparser. Optional second (tuple) value is a boolean that inverses a boolean value if True.
+            List containing arguments that represent the names of the arguments read in the inlist or 
+            argumentparser. Optional second (tuple) value is a boolean that inverses a boolean value if True.
         
         Returns
         -------
@@ -150,7 +166,8 @@ Python module containing (super)class that handles generic parsing of arguments,
         Returns
         -------
         my_path : str
-            The valid path. Will not be returned if the path is not valid; in that case a TypeError shall be raised.
+            The valid path. Will not be returned if the path is not valid; in that case
+            a TypeError shall be raised.
         ~~~
     
     `_set_up_generic_argparser(self) -> None`
@@ -169,7 +186,8 @@ Python module containing (super)class that handles generic parsing of arguments,
         variable_description : str
             Describes the use of the variable.
         my_value : typing.Any
-            The value that needs to be of string type (for this method to succeed/not add an exception to the list).
+            The value that needs to be of string type (for this method to succeed/not add an exception
+            to the list).
         my_exceptions: list[Exception]
             Keeps track of the raised exceptions during initialization.
 
@@ -189,7 +207,8 @@ Python module containing (super)class that handles generic parsing of arguments,
         inlist_name : str | None
             Name of the inlist file (without suffix and path information).
         inlist_dir : str | None
-            Name of the directory containing the inlist file (i.e., string representation of the path to this directory).
+            Name of the directory containing the inlist file (i.e., string representation of the path
+            to this directory).
         inlist_suffix : str
             Suffix of the inlist file.
         my_exceptions : list[Exception]
@@ -201,7 +220,7 @@ Python module containing (super)class that handles generic parsing of arguments,
             True if this initialization method succeeded, False otherwise.
         ~~~
 
-    `initialization_mode_1(self, full_inlist_path: pathlib.Path | None, base_directory_name: str, my_exceptions: list[Exception]) -> bool`
+    `_initialization_mode_1(self, full_inlist_path: pathlib.Path | None, base_directory_name: str, my_exceptions: list[Exception]) -> bool`
     :   Initialization method 1 for this generic parser class. This analyzes a passed Path, in order to retrieve/extract necessary information based on this path.
         ~~~
         Parameters
@@ -233,14 +252,17 @@ Python module containing (super)class that handles generic parsing of arguments,
         inlist_name : str | None, optional
             The name of the inlist file; by default None.
         inlist_dir : str | None, optional
-            The name of the inlists directory in the base directory; by default None. If None, and initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object looks for a directory named 'inlists/user_input/'; by default None.
+            The name of the inlists directory in the base directory; by default None. If None, and 
+            initialization mode 1 is not used (i.e. 'full_inlist_path' is None), the parsing object
+            looks for a directory named 'inlists/user_input/'; by default None.
         inlist_suffix : str, optional
             The suffix of the inlist file; by default 'in'.
 
         Raises
         ------
         ExceptionGroup
-            Any of the exceptions raised during the initialization methods will be stored in this exception group, which will be raised if none of the two initialization methods succeed.
+            Any of the exceptions raised during the initialization methods will be stored in
+            this exception group, which will be raised if none of the two initialization methods succeed.
         ~~~
 
 {% include button_back.html %}
