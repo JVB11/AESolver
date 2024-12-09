@@ -29,7 +29,7 @@ Because we use [Fortran](https://fortran-lang.org/) and [C++](https://isocpp.org
 
 1) [Van Beeck, J., Van Hoolst, T., Aerts, C., \& Fuller, J. (2023](https://ui.adsabs.harvard.edu/abs/2023arXiv231102972V/abstract); under revision at A\&A; manuscript available at [https://arxiv.org/abs/2311.02972](https://arxiv.org/abs/2311.02972)).
 
-### Author: Jordan Van Beeck <a href="https://orcid.org/0000-0002-5082-3887"> <img alt="ORCID logo" src="https://orcid.figshare.com/ndownloader/files/8439047/preview/8439047/preview.jpg" width="16" height="16"/></a>
+### Author: Jordan Van Beeck <a href="https://orcid.org/0000-0002-5082-3887"> <img alt="ORCID logo" src="./logo/ORCID-iD_icon_16x16.png" width="16" height="16"/></a>
 
 ![Python](https://img.shields.io/badge/python_powered-3670A0?style=for-the-badge&logo=python&logoColor=white)
 ![C++](https://img.shields.io/badge/c++_powered-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
