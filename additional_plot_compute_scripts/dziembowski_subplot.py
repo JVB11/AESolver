@@ -256,15 +256,16 @@ def adjust_labels(
 
 
 def add_text_label(
-    ax: 'Axes',
+    my_ax: 'Axes',
     delta_omega_over_gamma_1: 'float',
     text_color: 'str',
 ) -> 'None':
-    """Adds a text label representing the value of the
+    """Adds a text label representing the value of the ratio of linear
+    frequency detuning to the linear driving rate of the parent mode.
 
     Parameters
     ----------
-    ax : Axes
+    my_ax : Axes
         Axes object to which the text label shall be added.
     delta_omega_over_gamma_1 : float
         Ratio of the linear frequency detuning to the linear driving rate of the parent mode.
@@ -274,15 +275,15 @@ def add_text_label(
     # generate the exponent value for the text label
     _mod_exp = np.log10(delta_omega_over_gamma_1)
     # add the label to the axes object
-    ax.text(
+    my_ax.text(
         0.20,
         0.50,
-        rf'$\left(\dfrac{{\delta\omega}}{{\delta\gamma_1}}\right) = 10^{{{_mod_exp:.0f}}}$',
+        rf'$\left(\frac{{\delta\omega}}{{\delta\gamma_1}}\right) = 10^{{{_mod_exp:.0f}}}$',
         horizontalalignment='left',
         verticalalignment='center',
         color=text_color,
         alpha=0.8,
-        transform=ax.transAxes,
+        transform=my_ax.transAxes,
     )
 
 
@@ -297,7 +298,7 @@ def get_custom_colormap() -> 'ListedColormap':
     return ListedColormap(['white', 'k'])
 
 
-def get_dict_axes_information(ax: 'NDArrayOfAxes') -> 'AxesInformationDict':
+def get_dict_axes_information(ax: 'NDArrayOfAxes', first_row: 'bool') -> 'AxesInformationDict':
     """Returns a dictionary of data related to the setup of the axes, as well as the plot style of the generated figure,
     based on an input array of axes objects.
 
@@ -305,6 +306,9 @@ def get_dict_axes_information(ax: 'NDArrayOfAxes') -> 'AxesInformationDict':
     ----------
     ax : np.ndarray[Axes]
         Array containing axes objects for the generated figure.
+    first_row : bool
+        Specifies whether to generate the first or second row of panels
+        of figure 1 of Van Beeck et al. (2024).
 
     Returns
     -------
@@ -318,13 +322,19 @@ def get_dict_axes_information(ax: 'NDArrayOfAxes') -> 'AxesInformationDict':
         'plot_ylabel': [True, False, False],
         'y_left': [True, True, True],
         'x_bottom': [True, True, True],
-        'text_colors': ['k', 'white', 'white'],
+        'text_colors': ['k', 'k', 'k'] if first_row else ['k', 'white', 'white'],
     }
 
 
-def get_figure_information() -> 'tuple[AxesInformationDict, Figure]':
+def get_figure_information(first_row: 'bool') -> 'tuple[AxesInformationDict, Figure]':
     """Returns a dictionary containing data related to axes setup and plot style (of the generated figure),
     and the figure object itself.
+
+    Parameters
+    ----------
+    first_row : bool
+        Specifies whether to generate the first or second row of panels
+        of figure 1 of Van Beeck et al. (2024).
 
     Returns
     -------
@@ -336,7 +346,7 @@ def get_figure_information() -> 'tuple[AxesInformationDict, Figure]':
     # initialize the figure and axes objects
     fig, ax = plt.subplots(1, 3, figsize=(6.0, 9.0), dpi=300)
     # get the axes information dictionary
-    axes_info_dict = get_dict_axes_information(ax=ax)
+    axes_info_dict = get_dict_axes_information(ax=ax, first_row=first_row)
     # return the axes information dictionary and the figure object
     return axes_info_dict, fig
 
@@ -442,13 +452,13 @@ def generate_save_name(add_text: 'bool', first_row: 'bool') -> 'str':
     """
     match (add_text, first_row):
         case (True, False):
-            return 'Stability_domain_dg1_subplot_e2_e3_e4_paper_txt.png'
+            return 'Stability_domain_dg1_subplot_e2_e3_e4_VB_et_al_2024_annotated.png'
         case (True, True):
-            return 'Stability_domain_dg1_subplot_e-1_e0_e1_paper_txt.png'
+            return 'Stability_domain_dg1_subplot_e-1_e0_e1_VB_et_al_2024_annotated.png'
         case (False, False):
-            return 'Stability_domain_dg1_subplot_e2_e3_e4_paper.png'
+            return 'Stability_domain_dg1_subplot_e2_e3_e4_VB_et_al_2024.png'
         case _:
-            return 'Stability_domain_dg1_subplot_e-1_e0_e1_paper.png'
+            return 'Stability_domain_dg1_subplot_e-1_e0_e1_VB_et_al_2024.png'
 
 
 def save_figure(
@@ -484,20 +494,30 @@ if __name__ == '__main__':
     # ----------------------
     # USER INPUT INFORMATION
     # ----------------------
-    # specify whether to add explanatory text to the figures
+    # Specify whether to add explanatory text to the figures.
+    # This functionality specifically prints the ratio of the
+    # value of linear frequency detuning to the value of the
+    # linear driving rate of the parent mode in each of the panels.
+    #
+    # ##################### WARNING #########################
+    # ### Text is added to the plot using a local LaTeX  ####
+    # ###    installation. If no such install exists,    ####
+    # ###   setting this parameter equal to True will    ####
+    # ###        result in an ERROR being thrown!        ####
+    # ##################### WARNING #########################
     add_text = False
-    # specify whether to generate the first or second row of panels
-    # of figure 1 of Van Beeck et al. (2024)
-    # --> stitching both the figures containing the rows of panels
-    # was done using LaTeX
-    first_row = True
+    # Specify whether to generate the first or second row of panels
+    # of figure 1 of Van Beeck et al. (2024).
+    # After the figures were generated for both rows, the stitching
+    # of these figures was done using LaTeX.
+    first_row = False
     # ------------------------------------------------
     # FIXED USER INPUT INFORMATION FOR REPRODUCIBILITY
     # ------------------------------------------------
     # generate grid-specific information
     grid_data = get_grid_information(first_row=first_row)
     # generate figure-specific information and a figure object
-    figure_data, fig = get_figure_information()
+    figure_data, fig = get_figure_information(first_row=first_row)
     # get the custom colormap
     custom_cmp = get_custom_colormap()
     # -------------------------------
@@ -539,7 +559,7 @@ if __name__ == '__main__':
         # if requested, add a text label
         if add_text:
             add_text_label(
-                ax=_ax, delta_omega_over_gamma_1=dg1, text_color=_col
+                my_ax=_ax, delta_omega_over_gamma_1=dg1, text_color=_col
             )
         # delete arrays to make space
         del X
