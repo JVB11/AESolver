@@ -27,7 +27,7 @@ Because we use [Fortran](https://fortran-lang.org/) and [C++](https://isocpp.org
 
 ### When using (part of) this code, you should cite the following works:
 
-1) [Van Beeck, J., Van Hoolst, T., Aerts, C., \& Fuller, J. (2023](https://ui.adsabs.harvard.edu/abs/2023arXiv231102972V/abstract); under revision at A\&A; manuscript available at [https://arxiv.org/abs/2311.02972](https://arxiv.org/abs/2311.02972)).
+1) [Van Beeck, J., Van Hoolst, T., Aerts, C., \& Fuller, J. 2024, Astronomy & Astrophysics, 687, A265](https://www.aanda.org/articles/aa/full_html/2024/07/aa48369-23/aa48369-23.html). (arXiv manuscript available at [https://arxiv.org/abs/2311.02972](https://arxiv.org/abs/2311.02972)).
 
 ### Author: Jordan Van Beeck <a href="https://orcid.org/0000-0002-5082-3887"> <img alt="ORCID logo" src="./logo/ORCID-iD_icon_16x16.png" width="16" height="16"/></a>
 
