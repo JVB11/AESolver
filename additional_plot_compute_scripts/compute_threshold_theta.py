@@ -275,9 +275,9 @@ def print_result(
     print(
         f'\nLinear regression for the threshold boundary yields: {boundary} +/- {uncertainty_boundary}'
     )
-    print(f'with regression slope: {lin_result.slope} +/- {lin_result.stderr}')
+    print(f'with slope: {lin_result.slope} +/- {lin_result.stderr}   (estimated from the regression)')
     print(
-        f'and regression intercept: {lin_result.intercept} +/- {lin_result.intercept_stderr}\n'
+        f'and intercept: {lin_result.intercept} +/- {lin_result.intercept_stderr}   (estimated from the regression)\n'
     )
 
 
@@ -285,6 +285,14 @@ if __name__ == '__main__':
     # ------------------
     # USER-DEFINED INPUT
     # ------------------
+    #
+    # ######## WARNING ########
+    # #  To run this script,  #
+    # #  one should activate  #
+    # #  the AESolver python  #
+    # #      environment!     #
+    # ######## WARNING ########
+    #
     # define the number of closest points taken into account to
     # determine the boundary (for reproducibility, set to 3)
     my_nr_closest_points = 3
