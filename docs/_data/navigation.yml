@@ -1,5 +1,7 @@
 - name: Home
   link: /
+- name: Guidelines
+  link: /citation_guidelines
 - name: API
   link: /overview_API
   subcategories:
