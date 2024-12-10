@@ -2,7 +2,6 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# import modules
 import matplotlib
 import sys
 import numpy as np

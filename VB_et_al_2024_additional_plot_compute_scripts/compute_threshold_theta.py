@@ -3,7 +3,6 @@ based on values of the isolated mode triads listed in Table 5 of Van Beeck et al
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# import statements
 import numpy as np
 import pandas as pd
 from scipy.stats import linregress
