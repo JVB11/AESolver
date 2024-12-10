@@ -2,7 +2,6 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# import the necessary packages
 import ast
 import logging
 import re
@@ -10,28 +9,24 @@ import shlex
 import sys
 from functools import partialmethod
 
+# type checking imports
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Any
 
 
-# set up logger
 logger = logging.getLogger(__name__)
 
 
-# inlist handler class
 class InlistHandler:
     """Python class that handles how custom-format inlists are parsed."""
 
-    # --------------------------------------------------------------- #
-    # Define the method that will be used for functional type mapping #
-    # --------------------------------------------------------------- #
     @staticmethod
     def _multi_check_method(
         value_string: str, check_values: list[str], any_check: bool=False, all_check: bool=False
     ) -> bool:
-        """Internal utility method used to check a condition / multiple conditions for the typing.
+        """Internal utility method used to check a condition / multiple conditions for functional type mapping.
 
         Parameters
         ----------
@@ -49,14 +44,11 @@ class InlistHandler:
         bool
             The outcome of the check for the typing.
         """
-        # return the outcome of the check
         if any_check:
-            # check if any of the conditions match
             return any(
                 _check_value in value_string for _check_value in check_values
             )
         elif all_check:
-            # check if all conditions match
             return all(
                 _check_value in value_string for _check_value in check_values
             )
@@ -64,9 +56,6 @@ class InlistHandler:
             logger.error('No specified check method mentioned. Now exiting.')
             sys.exit()
 
-    # ---------------------------------------------------------- #
-    # Define the enumeration elements used for typing operations #
-    # ---------------------------------------------------------- #
     # define the functional mappings for the typing operations
     string_check = partialmethod(
         _multi_check_method, check_values=[r"'", r'"'], any_check=True
@@ -92,20 +81,14 @@ class InlistHandler:
         _multi_check_method, check_values=['.'], all_check=True
     )
 
-    # ---------------------------------------------------------------------- #
-    # Define the enumeration elements that allow the selection of the inlist #
-    # ---------------------------------------------------------------------- #
     # define and compile the regular expression used to select the defaults inlist
     compiled_regex_defaults = re.compile(r'(.*)\/.*\/(.*)\..*')
     # define and compile the regular expression used to parse floats
     compiled_float_regex = re.compile(r'\d+[eE]-*\d+')
 
-    # ---------------------------------------------------------- #
-    # Define the method that performs the typing of parsed input #
-    # ---------------------------------------------------------- #
     @classmethod
     def _typer(cls, value_string):
-        """Internal utility method used to define infer types from the input in the inlists.
+        """Internal utility method used to infer types from the input in the inlists.
 
         Parameters
         ----------
@@ -160,9 +143,6 @@ class InlistHandler:
             typed_value = int(value_string)
         return typed_value
 
-    # ------------------------------------------- #
-    # Define the method that performs the parsing #
-    # ------------------------------------------- #
     @classmethod
     def _parse_inlist(cls, inlist_path, dictionary_inlist=None):
         """Internal utility method that parses a user inlist and obtains the values of the input parameters.
@@ -179,10 +159,8 @@ class InlistHandler:
         dictionary_inlist: dict
             Contains the (updated) key-value pairs of the values specified in the inlist.
         """
-        # make immutable argument
         if dictionary_inlist is None:
             dictionary_inlist = {}
-        # parse the inlist
         try:
             with open(inlist_path) as _inlist:
                 # read the complete inlist as one string and
@@ -224,9 +202,6 @@ class InlistHandler:
         else:
             return dictionary_inlist
 
-    # ------------------------------------------------------------------------------- #
-    # Define the method that shall be used to parse and set the default inlist values #
-    # ------------------------------------------------------------------------------- #
     @classmethod
     def _get_default_inlist_values(cls, inlist_path):
         """Class method that obtains the default values obtained from the inlist: 'xxxx.defaults'.
@@ -246,10 +221,7 @@ class InlistHandler:
         dict
             Contains the key-value pairs of the values specified in the inlist containing the defaults.
         """
-        # obtain the matches for creating the path to the defaults file
         _defaults_matches = cls.compiled_regex_defaults.match(inlist_path)
-        # construct the name of the defaults file and return
-        # the values of the parameters in the defaults file
         if _defaults_matches is None:
             raise NameError(
                 f'No file was found at the path {inlist_path} that matches the conventional naming.'
@@ -260,9 +232,6 @@ class InlistHandler:
                 f'{_defaults_matches.group(2)}.defaults'
             )
 
-    # -------------------------------------------------------- #
-    # Define the (main) method that retrieves the inlist input #
-    # -------------------------------------------------------- #
     @classmethod
     def get_inlist_values(cls, inlist_path: str) -> dict:
         """Utility method that retrieves the default inlist values, and updates them, if necessary.

@@ -2,10 +2,7 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# import statements
 import pytest
-
-# import the class to be tested
 from inlist_handler import InlistHandler
 
 
@@ -18,6 +15,7 @@ def inlist_file(tmp_path_factory):
     my_path_default.mkdir(parents=True, exist_ok=True)
     my_path_default = my_path_default / 'test.defaults'
     # construct the text for the inlist and defaults file
+    # and generate these files
     my_text = """
         % Test inlist
         % Author: John Doe
@@ -41,18 +39,15 @@ def inlist_file(tmp_path_factory):
         % generic comment load check
         my_comment_load = 8%7%6
         """
-    # write text to the temporary inlist file
     my_path.write_text(my_text)
     my_path_default.write_text(my_text)
-    # return the path (only need the path to the inlist,
-    # path to defaults file is automatically generated)
+    # return the path (only need the path to the inlist, as
+    # the path to defaults file is automatically generated)
     return my_path
 
 
-# fixture
 @pytest.fixture(scope='class')
 def setup_test_class(request):
-    # store the expected output
     request.cls.expected_output = {
         'my_bool': True,
         'my_capital_bool': False,
@@ -66,12 +61,9 @@ def setup_test_class(request):
     }
 
 
-# pytest class
 @pytest.mark.usefixtures('setup_test_class')
 class TestTomlInlistHandler:
     """Tests the TomlInlistHandler class"""
-
-    # attribute type declarations
     expected_output: dict
 
     def test_toml_read(self, inlist_file):
@@ -80,5 +72,4 @@ class TestTomlInlistHandler:
         my_output = InlistHandler.get_inlist_values(
             inlist_path=str(inlist_file.resolve())
         )
-        # assert the output is ok
         assert my_output == self.expected_output

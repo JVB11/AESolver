@@ -2,12 +2,10 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# version + author
 __version__ = '1.0.0'
 __author__ = 'Jordan Van Beeck'
 
 
-# import the module functionalities
 from .log_formatter import set_up_root_logger
 from .log_formatter import adjust_root_logger_level
 

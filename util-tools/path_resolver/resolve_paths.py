@@ -2,7 +2,6 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# import statements
 import errno
 import os
 from pathlib import Path
@@ -57,14 +56,12 @@ def resolve_path_to_file(
     FileNotFoundError
         Raised when the corresponding file cannot be found in the programmatic paths. This is likely due to mis-specification of the 'default_path'!
     """
-    # check if the default path exists
     if (my_default_path := Path(f'{default_path}/{file_name}')).exists():
         # return the resolved (default) path
         return my_default_path.resolve()
     else:
         # get the path to the file directory containing the run file
         my_run_file_path = Path(_get_abspath_to_run(sys_arguments=sys_arguments))
-        # check if the full path exists
         if (
             my_full_path := (
                 my_run_file_path / default_run_path / my_default_path

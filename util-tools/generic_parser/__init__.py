@@ -2,13 +2,10 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-
-# version + author
 __version__ = '1.0.0'
 __author__ = 'Jordan Van Beeck'
 
 
-# import the GenericParser object
 from .generic_parser import GenericParser
 
 
