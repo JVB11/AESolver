@@ -2,14 +2,12 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# import statements
 import logging
 import sys
 from enum import Enum
 from numba import stencil  # type: ignore
 
 
-# set up logger
 logger = logging.getLogger(__name__)
 
 
@@ -37,7 +35,6 @@ def center_kernel_second_order(x, y):
     )
 
 
-# enumeration class that handles Numba stencils for numerical differentiation
 class StencilFunctions(Enum):
     """Enumeration class used to store Numba finite differencing stencil methods.
 
@@ -52,7 +49,6 @@ class StencilFunctions(Enum):
     BACKWARD = {'1': backward_difference_kernel_first_order, '2': None}
     CENTER = {'1': center_kernel_first_order, '2': center_kernel_second_order}
 
-    # retrieve the stencil function
     @classmethod
     def retrieve_stencil(cls, my_order=1, my_differencing_type='center'):
         """Class method used to retrieve the stencil function.
@@ -75,10 +71,7 @@ class StencilFunctions(Enum):
         str
             Information on the numerical derivative models.
         """
-        # retrieve the dictionary containing the stencil functions
         _stencil_dict = cls.__getitem__(my_differencing_type.upper()).value
-        # use the order argument to retrieve the correct stencil function
-        # and return it
         try:
             return (
                 _stencil_dict[f'{my_order}'],

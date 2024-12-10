@@ -2,11 +2,9 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# import statements
 import numpy as np
 
 
-# utility function used to construct complex numpy arrays
 def re_im(val, dim_expr):
     """Generic utility function used to construct complex numpy arrays.
 
@@ -22,20 +20,16 @@ def re_im(val, dim_expr):
     np.ndarray
         The complex valued array.
     """
-    # generate the empty numpy array
-    # - rule for void handling
+    # Specific rule for handling void value input
     if isinstance(val, np.void):
         my_complex_array = np.empty((1,), dtype=np.complex128)
     else:
         my_complex_array = np.empty((val['re'].shape[0],), dtype=np.complex128)
-    # fill the array
     my_complex_array.real = val['re'] * dim_expr  # type: ignore
     my_complex_array.imag = val['im'] * dim_expr  # type: ignore
-    # return the array
     return my_complex_array
 
 
-# utility function used to construct complex numpy arrays from provided parts
 def re_im_parts(real_val, imag_val, check_for_void=False):
     """Generic utility function used to construct a complex numpy array using two parts of a (GYRE) quantity.
 
@@ -53,7 +47,6 @@ def re_im_parts(real_val, imag_val, check_for_void=False):
     my_complex_array : np.ndarray
         The complex valued array.
     """
-    # initialize the complex array (check for void type if needed)
     if (
         check_for_void
         and isinstance(real_val, np.void)
@@ -62,8 +55,6 @@ def re_im_parts(real_val, imag_val, check_for_void=False):
         my_complex_array = np.empty((1,), dtype=np.complex128)
     else:
         my_complex_array = np.empty((real_val.shape[0],), dtype=np.complex128)  # type: ignore
-    # fill it
     my_complex_array.real = real_val
     my_complex_array.imag = imag_val
-    # return it
     return my_complex_array

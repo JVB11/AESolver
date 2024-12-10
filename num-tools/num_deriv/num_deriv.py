@@ -2,7 +2,6 @@
 
 Author: Jordan Van Beeck <jordanvanbeeck@hotmail.com>
 """
-# import statements
 import logging
 import sys
 import numpy as np
@@ -20,11 +19,9 @@ except ImportError:
 from myfnd import fnd  # type: ignore
 
 
-# set up logger
 logger = logging.getLogger(__name__)
 
 
-# class definition for the class containing the numerical differentiation methods
 class NumericalDifferentiator:
     """Python class that contains several methods that can be used for numerical differentiation.
 
@@ -44,15 +41,12 @@ class NumericalDifferentiator:
     interpolation_factor : int, optional
         Denotes the factor with which sampling will be increased if 'perform_interpolation' is True; by default 10. (A value of e.g. 10 will increase the sampling tenfold!)
     """
-
-    # type hints
     _allowed_types: dict[str, Callable]
     _differentiation_executable: Callable
     _order_derivative: int
     _perform_interpolation: bool
     _interpolation_factor: int
 
-    # initialization
     def __init__(
         self,
         order_derivative,
@@ -60,7 +54,9 @@ class NumericalDifferentiator:
         perform_interpolation=False,
         interpolation_factor=10,
     ) -> None:
-        # construct the dictionary of allowed numerical differentiation types, which refer to the differentiation methods contained in this class, and booleans that indicate whether smoothing can be applied.
+        # construct the dictionary of allowed numerical differentiation types, which refer to 
+        # the differentiation methods contained in this class, and booleans that indicate 
+        # whether smoothing can be applied.
         if numba_allowed:
             self._allowed_types = {
                 'stencil_functions': self._finite_difference_stencil,
@@ -72,16 +68,13 @@ class NumericalDifferentiator:
                 'gradient': self._gradient_stencil_numpy,
                 'fornberg': self._fornberg_interpolation,
             }
-        # load the differentiation method
         self._differentiation_executable = self._select_differentiation_method(
             differentiation_method
         )
-        # store the order up to which derivatives should be computed, if possible
         self._order_derivative = order_derivative
-        # store whether internal linear interpolation should be used to increase the number of samples in the input arrays.
+        # store whether internal linear interpolation should be used to increase 
+        # the number of samples in the input arrays.
         self._perform_interpolation = perform_interpolation
-        # store the interpolation factor
-        # NEEDS TO BE AN INTEGER
         if isinstance(interpolation_factor, int):
             self._interpolation_factor = interpolation_factor
         else:
@@ -90,9 +83,6 @@ class NumericalDifferentiator:
             )
             sys.exit()
 
-    ##################################################
-    # method that selects the differentiation method #
-    ##################################################
     def _select_differentiation_method(self, method_identifier):
         """Internal method used to select the numerical differentiation method.
 
@@ -119,9 +109,6 @@ class NumericalDifferentiator:
             )
             sys.exit()
 
-    ###########################################################################
-    # internal methods that define how numerical differentiation is performed #
-    ###########################################################################
     def _fornberg_interpolation(
         self, x, y, original_formulation=False, interpolation_order=4
     ):
@@ -145,14 +132,12 @@ class NumericalDifferentiator:
         str
             Information on the Lagrange interpolation models.
         """
-        # Choose between the two different implementations
         if original_formulation:
             # - Original formulation + numpy implementation
             # TODO: implement this
             sys.exit()
         else:
             # - Cococubed implementation, see: https://cococubed.com/code_pages/fdcoef.shtml
-            # initialize the result arrays + fill them
             results = []
             for _ord_der in range(self._order_derivative + 1):
                 # append the zero-th derivative
@@ -163,13 +148,12 @@ class NumericalDifferentiator:
                     _array_der = np.asfortranarray(
                         np.empty_like(y, dtype=np.float64)
                     )
-                    # compute the grid derivative
+                    # compute the grid derivative using the compiled and interfaced Fortran module
                     fnd.fornberg_grid_derivative(
                         _ord_der, interpolation_order, x, y, _array_der
                     )
                     # append the results (re-conversion to C-contiguity not needed for 1D arrays)
                     results.append(np.ascontiguousarray(_array_der))
-            # return the results + information
             return (
                 results,
                 f'Lagrange interpolation polynomial model based on Fornberg (1988); Cocubed implementation (interpolation accuracy order: {interpolation_order}, derivatives up to order {self._order_derivative}).',
@@ -201,16 +185,14 @@ class NumericalDifferentiator:
 
         Output
         ------
-        list[np.ndarray]
+        results: list[np.ndarray]
             The list containing the finite difference stencil models for the first derivative.
-        str
+        info_string: str
             Information on the finite difference stencil models.
         """
-        # create an alias for the finite differencing method, and retrieve the information string
         _fd_method, info_string = StencilFunctions.retrieve_stencil(
             my_order=my_order, my_differencing_type=my_differencing_type
         )
-        # retrieve list of finite difference stencil models
         results = [
             _fd_method(x, y)
             if (_ord_der == 1)
@@ -219,7 +201,6 @@ class NumericalDifferentiator:
             else None
             for _ord_der in range(self._order_derivative + 1)
         ]
-        # return the finite difference stencil models and the information string
         return results, info_string
 
     def _gradient_stencil_numpy(self, x, y, edge_order=2):
@@ -240,12 +221,11 @@ class NumericalDifferentiator:
 
         Returns
         -------
-        list[np.ndarray]
+        results: list[np.ndarray]
             The list containing the numpy gradient stencil models for the first derivative.
         str
             Information on the numpy gradient stencil models.
         """
-        # retrieve list of numpy gradient stencil models
         results = [
             np.gradient(y, x, edge_order=edge_order)
             if (_ord_der == 1)
@@ -254,7 +234,6 @@ class NumericalDifferentiator:
             else None
             for _ord_der in range(self._order_derivative + 1)
         ]
-        # return the stencil results + information string
         return (
             results,
             f'Numpy gradient stencil model for the first derivative (edge order cases handles with order of accuracy: {edge_order})',
@@ -289,9 +268,8 @@ class NumericalDifferentiator:
         str
             Information on the numerical derivative models.
         """
-        # check if a linear interpolation should be done
         if self._perform_interpolation:
-            # get the 1D interpolation
+            # get the linear 1D interpolation
             _interpolator = interp1d(x, y)
             _x = np.linspace(
                 x.min(),
@@ -302,7 +280,8 @@ class NumericalDifferentiator:
         else:
             _x = x
             _y = y
-        # run the numerical differentiation method using the selected kwargs or the default values (no kwargs supplied), and return the output
+        # run the numerical differentiation method using the selected kwargs or 
+        # the default values (no kwargs supplied), and return the output
         # - use default values or use supplied kwarg values
         derivatives = (
             self._differentiation_executable(_x, _y)
@@ -313,7 +292,6 @@ class NumericalDifferentiator:
         if self._perform_interpolation:
             # perform the mapping from one to the other
             _map_idx = np.in1d(_x, x).nonzero()[0]
-            # initialize output list
             der_sub_sample = []
             # perform sub-sampling
             for _my_der in derivatives[0]:
@@ -321,8 +299,6 @@ class NumericalDifferentiator:
                     der_sub_sample.append(None)
                 else:
                     der_sub_sample.append(_my_der[_map_idx])
-            # return the derivatives
             return (der_sub_sample, derivatives[1])
         else:
-            # return the derivatives
             return derivatives
