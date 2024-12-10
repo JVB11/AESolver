@@ -19,16 +19,17 @@ if TYPE_CHECKING:
 
 def get_values_for_interpolation() -> 'tuple[list[float], list[float]]':
     """Returns values of theta_2 and the daughter-parent amplitude ratio (for daughter 1)
-    used to compute/interpolate the threshold boundary.
+    used to compute/interpolate the threshold boundary. These values are listed
+    in table 5 of Van Beeck et al. (2024).
 
     Returns
     -------
     theta_2 : list[float]
-        Contains values of theta_2.
+        Contains values of theta_2 (which is equal to -gamma_2 / gamma_1, with gamma_x 
+        being the linear driving (positive value) or damping (negative value) rate of mode x).
     ratio_2_1 : list[float]
         Contains values of the daughter-parent amplitude ratio (for daughter 1).
     """
-    # store the theta_2 values
     theta_2 = [
         0.76947,
         0.92560,
@@ -52,7 +53,6 @@ def get_values_for_interpolation() -> 'tuple[list[float], list[float]]':
         1.58532,
         18.0122,
     ]
-    # store the daughter-parent amplitude ratio (daughter 1)
     ratio_2_1 = [
         0.55605,
         0.42858,
@@ -76,7 +76,6 @@ def get_values_for_interpolation() -> 'tuple[list[float], list[float]]':
         0.30289,
         0.12459,
     ]
-    # return the interpolation values
     return theta_2, ratio_2_1
 
 
@@ -89,7 +88,8 @@ def generate_plot_dataframe(
     Parameters
     ----------
     theta_2 : list[float]
-        Contains values of theta_2.
+        Contains values of theta_2 (which is equal to -gamma_2 / gamma_1, with gamma_x 
+        being the linear driving (positive value) or damping (negative value) rate of mode x).
     ratio_2_1 : list[float]
         Contains values of the daughter-parent amplitude ratio (for daughter 1).
 
@@ -128,15 +128,12 @@ def get_difference_arrays(
         NaN-valued entries in this array indicate entries in the daughter-parent amplitude ratio array
         that are larger or equal to 1.0.
     """
-    # get the necessary difference arrays
-    my_diff = my_df.loc[:, 'ratio_2_1'].to_numpy() - 1.0
-    # distinguish between positive and negative differences
-    pos = my_diff > 0.0
-    my_pos_diff = my_diff.copy()
-    my_neg_diff = my_diff.copy()
-    my_pos_diff[~pos] = np.NaN
-    my_neg_diff[pos] = np.NaN
-    # return the difference arrays
+    difference_arrays = my_df.loc[:, 'ratio_2_1'].to_numpy() - 1.0
+    more_than_one = difference_arrays > 0.0
+    my_pos_diff = difference_arrays.copy()
+    my_neg_diff = difference_arrays.copy()
+    my_pos_diff[~more_than_one] = np.NaN
+    my_neg_diff[more_than_one] = np.NaN
     return my_pos_diff, my_neg_diff
 
 
@@ -173,10 +170,8 @@ def get_k_smallest_points_masks(
     neg_closest_k : np.ndarray[np.int32]
         Integer mask used to select the k entries of the negative differences closest to 0.0.
     """
-    # get the integer masks
     pos_closest_k = np.argpartition(my_pos_diff, k)
     neg_closest_k = np.argpartition(np.abs(my_neg_diff), k)
-    # return them
     return pos_closest_k, neg_closest_k
 
 
@@ -188,7 +183,7 @@ def get_k_smallest_points(
     neg_closest_k: 'npt.NDArray[np.int32]',
 ) -> 'tuple[npt.NDArray[np.float64], npt.NDArray[np.float64]]':
     """Retrieves the k entries in the daughter-parent amplitude ratio array that are closest
-    to 1.0 from both sides (i.e., the k entries closest to 1.0 and smaller than 1.0,as well as
+    to 1.0 from both sides (i.e., the k entries closest to 1.0 and smaller than 1.0, as well as
     the k entries closest to 1.0 and larger than 1.0.).
 
     Parameters
@@ -215,10 +210,8 @@ def get_k_smallest_points(
     yy_k : np.ndarray[np.float64]
         Y values used for the linear regression/interpolation with which we compute the threshold boundary.
     """
-    # generate the regression points
     xx_k = np.concatenate([X[pos_closest_k[:k]], X[neg_closest_k[:k]]])
     yy_k = np.concatenate([Y[pos_closest_k[:k]], Y[neg_closest_k[:k]]])
-    # return those points
     return xx_k, yy_k
 
 
@@ -245,14 +238,11 @@ def perform_linear_regression(
     boundary : np.ndarray[np.float64]
         Estimated threshold boundary.
     """
-    # perform linear regression
     lin_result = linregress(yy_k, xx_k)
-    # compute the linear regression result for the 1.0 boundary
+    boundary = lin_result.intercept + lin_result.slope  # type: ignore
     uncertainty_boundary = np.sqrt(
         lin_result.stderr**2.0 + lin_result.intercept_stderr**2.0  # type: ignore
     )
-    boundary = lin_result.intercept + lin_result.slope  # type: ignore
-    # return results
     return lin_result, uncertainty_boundary, boundary
 
 
@@ -282,6 +272,7 @@ def print_result(
 
 
 if __name__ == '__main__':
+    #
     # ------------------
     # USER-DEFINED INPUT
     # ------------------
@@ -295,23 +286,19 @@ if __name__ == '__main__':
     #
     # define the number of closest points taken into account to
     # determine the boundary (for reproducibility, set to 3)
+    #
     my_nr_closest_points = 3
+    #
     # ------------------
-    # get the theta_2 and daughter-parent amplitude ratios
+    #
     theta_2, ratio_2_1 = get_values_for_interpolation()
-    # get the relevant dataframe
     my_df = generate_plot_dataframe(theta_2=theta_2, ratio_2_1=ratio_2_1)
-    # generate the difference arrays
     my_pos_diff, my_neg_diff = get_difference_arrays(my_df=my_df)
-    # get the k smallest point masks on both sides
     pos_closest_k, neg_closest_k = get_k_smallest_points_masks(
         k=my_nr_closest_points, my_neg_diff=my_neg_diff, my_pos_diff=my_pos_diff
     )
-    # store the data points (of which a subset will be used
-    # for linear regression) in arrays
     X = np.array(theta_2)
     Y = np.array(ratio_2_1)
-    # get the k smallest points on both sides
     xx_k, yy_k = get_k_smallest_points(
         k=my_nr_closest_points,
         X=X,
@@ -319,17 +306,13 @@ if __name__ == '__main__':
         pos_closest_k=pos_closest_k,
         neg_closest_k=neg_closest_k,
     )
-    # perform linear regression
     lin_result, uncertainty_boundary, boundary = perform_linear_regression(
         xx_k=xx_k, yy_k=yy_k
     )
-    # print the result
     print_result(
         lin_result=lin_result,
         uncertainty_boundary=uncertainty_boundary,
         boundary=boundary,
     )
-    # plot the regression result
     plt.plot(lin_result.intercept + lin_result.slope * yy_k, yy_k, 'r')
-    # show the result
     plt.show()
